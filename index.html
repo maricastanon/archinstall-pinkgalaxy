@@ -598,38 +598,117 @@ echo "font_size 14" >> ~/.config/kitty/kitty.conf
       </div>
       <div class="step-detail">
         <div class="step-detail-inner">
-          <div class="cmd-label">If external monitor not detected:</div>
-          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Check connection
+          <div class="mindmap">
+            <div class="mindmap-center">🖥️ Monitor Not Detected?</div>
+            <div class="mindmap-branches">
+              <div class="branch">
+                <div class="branch-title">🔌 Cable Issue</div>
+                <div class="branch-items">
+                  <span class="quick-fix">Try different cable</span>
+                  <span class="quick-fix">Try different port</span>
+                  <a href="#cable-troubleshooting" class="detail-link">📚 Cable troubleshooting guide</a>
+                </div>
+              </div>
+              <div class="branch">
+                <div class="branch-title">💻 Driver Issue</div>
+                <div class="branch-items">
+                  <span class="quick-fix">Restart display manager</span>
+                  <span class="quick-fix">Update graphics drivers</span>
+                  <a href="#driver-troubleshooting" class="detail-link">📚 Driver troubleshooting guide</a>
+                </div>
+              </div>
+              <div class="branch">
+                <div class="branch-title">🔧 Detection Tools</div>
+                <div class="branch-items">
+                  <span class="tool-option">hyprctl monitors all</span>
+                  <span class="tool-option">wlr-randr (if installed)</span>
+                  <a href="#detection-tools" class="detail-link">📚 All detection methods</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cmd-label">Quick fixes to try:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Option 1: Check what's detected (Hyprland built-in)
+hyprctl monitors all
+
+# Option 2: If you installed wlr-randr
 wlr-randr | grep connected
 
-# Refresh detection
-sudo systemctl restart display-manager
-
-# Check cables - try different ports
-# USB-C, HDMI, DisplayPort</div>
+# Option 3: Restart display system
+sudo systemctl restart display-manager</div>
           
-          <div class="cmd-label">If bottom content is cut off:</div>
-          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Force correct resolution
-wlr-randr --output HDMI-A-1 --mode 1920x1080
-wlr-randr --output HDMI-A-1 --mode 2560x1440  
-wlr-randr --output HDMI-A-1 --mode 3840x2160
+          <div class="problem-solver">
+            <div class="problem">❌ Bottom content cut off?</div>
+            <div class="solutions">
+              <div class="solution-path">
+                <span class="method">Method 1: hyprctl (Always works)</span>
+                <span class="why">Why: Built into Hyprland</span>
+                <a href="#hyprctl-positioning" class="detail-link">📚 Complete hyprctl guide</a>
+              </div>
+              <div class="solution-path">
+                <span class="method">Method 2: wlr-randr (If you have it)</span>
+                <span class="why">Why: More features, but not in Arch repos</span>
+                <a href="#wlr-randr-advanced" class="detail-link">📚 wlr-randr installation & usage</a>
+              </div>
+              <div class="solution-path">
+                <span class="method">Method 3: Monitor settings</span>
+                <span class="why">Why: Turn off overscan/zoom</span>
+                <a href="#monitor-settings" class="detail-link">📚 Monitor menu navigation</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cmd-label">Fix resolution (choose your method):</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Method 1: hyprctl (recommended - always available)
+hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1.0      # 1080p
+hyprctl keyword monitor HDMI-A-1,2560x1440,1920x0,1.5      # 1440p
+hyprctl keyword monitor HDMI-A-1,3840x2160,1920x0,2.0      # 4K LG HDR
 
-# Position monitors
-wlr-randr --output eDP-1 --pos 0,0
-wlr-randr --output HDMI-A-1 --pos 1920,0</div>
+# Method 2: wlr-randr (if you installed it)
+wlr-randr --output HDMI-A-1 --mode 1920x1080 --pos 1920,0
+wlr-randr --output HDMI-A-1 --mode 2560x1440 --pos 1920,0  
+wlr-randr --output HDMI-A-1 --mode 3840x2160 --pos 1920,0</div>
 
-          <div class="cmd-label">Common Dell 7420 monitor setups:</div>
-          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Laptop + 1080p external on right
-wlr-randr --output eDP-1 --mode 1920x1200 --pos 0,0 --scale 1.25
-wlr-randr --output HDMI-A-1 --mode 1920x1080 --pos 1920,0 --scale 1.0
+          <div class="setup-visual">
+            <div class="setup-title">🎯 Your Dell 7420 + LG HDR 4K Setup Options</div>
+            <div class="setup-grid">
+              <div class="setup-option">
+                <div class="setup-icon">💻🖥️</div>
+                <div class="setup-name">Dual Screen</div>
+                <div class="setup-pros">✅ More space</div>
+                <div class="setup-cons">❌ Different DPI</div>
+                <a href="#dual-screen-guide" class="detail-link">📚 Dual screen setup guide</a>
+              </div>
+              <div class="setup-option">
+                <div class="setup-icon">🖥️</div>
+                <div class="setup-name">External Only</div>
+                <div class="setup-pros">✅ Big screen, consistent</div>
+                <div class="setup-cons">❌ Hot laptop when closed</div>
+                <a href="#external-only-guide" class="detail-link">📚 External-only setup guide</a>
+              </div>
+              <div class="setup-option">
+                <div class="setup-icon">💻</div>
+                <div class="setup-name">Laptop Only</div>
+                <div class="setup-pros">✅ Portable, cool</div>
+                <div class="setup-cons">❌ Small screen</div>
+                <a href="#laptop-only-guide" class="detail-link">📚 Laptop optimization guide</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cmd-label">Commands for your LG HDR 4K setup:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Option 1: Dual screen (hyprctl method)
+hyprctl keyword monitor eDP-1,1920x1200,0x0,1.25          # Laptop left
+hyprctl keyword monitor HDMI-A-1,3840x2160,1920x0,2.0     # LG 4K right
 
-# Laptop + 4K external on right  
+# Option 1: Dual screen (wlr-randr method - if you have it)
 wlr-randr --output eDP-1 --mode 1920x1200 --pos 0,0 --scale 1.25
 wlr-randr --output HDMI-A-1 --mode 3840x2160 --pos 1920,0 --scale 2.0
 
-# External monitor only (disable laptop screen)
-wlr-randr --output eDP-1 --off
-wlr-randr --output HDMI-A-1 --mode 1920x1080 --scale 1.0</div>
+# Option 2: LG 4K only (close laptop)
+hyprctl keyword monitor eDP-1,disable
+hyprctl keyword monitor HDMI-A-1,3840x2160,0x0,2.0</div>
 
           <div class="callout c-ok">✅ <strong>Test it works:</strong> Open a terminal and make sure you can see this command output without scrolling: <code>echo "Bottom line test - can you see this? 🌸"</code></div>
         </div>
