@@ -256,33 +256,112 @@
     </div>
     <div class="pill-content">
       <div class="pill-inner">
-        <h4>Accessing Dell 7420 BIOS</h4>
+        <h4>🔹 Step 1: Accessing BIOS</h4>
         <ol>
-          <li>Power off completely (not sleep/hibernate)</li>
-          <li>Press power button</li>
-          <li>Immediately tap <code>F2</code> repeatedly until BIOS appears</li>
-          <li>If boot starts, restart and try <code>F12</code> → BIOS Setup</li>
+          <li><strong>Power off laptop completely</strong>
+            <ul><li>Hold power button 5 seconds until fully off (not just sleep)</li></ul>
+          </li>
+          <li><strong>Enter BIOS setup</strong>
+            <ul>
+              <li>Press power button once</li>
+              <li>Immediately start tapping <code>F2</code> key rapidly (every 0.5 seconds)</li>
+              <li>Keep tapping until Dell BIOS blue screen appears</li>
+              <li><strong>If Windows boots instead:</strong> Restart and try again, start F2 earlier</li>
+            </ul>
+          </li>
         </ol>
-        
-        <h4>Navigation Map</h4>
-        <pre>Main → System Configuration → SATA Operation
-    ├── RAID On → Change to AHCI
-    └── Apply → Yes
 
-Security → Secure Boot → Secure Boot Enable
-    └── Enabled → Change to Disabled
+        <h4>🔹 Step 2: Change Storage Mode (CRITICAL)</h4>
+        <ol>
+          <li><strong>Navigate to storage settings</strong>
+            <ul>
+              <li>You'll see tabs at top: General, System Configuration, Security, etc.</li>
+              <li>Click on <strong>"System Configuration"</strong> tab (or use arrow keys + Enter)</li>
+            </ul>
+          </li>
+          <li><strong>Find SATA Operation setting</strong>
+            <ul>
+              <li>Scroll down to find <strong>"SATA Operation"</strong> (usually middle of list)</li>
+              <li>Current value will show <strong>"RAID On"</strong></li>
+            </ul>
+          </li>
+          <li><strong>Change to AHCI</strong>
+            <ul>
+              <li>Click on <strong>"RAID On"</strong> dropdown</li>
+              <li>Select <strong>"AHCI"</strong> from dropdown menu</li>
+              <li>Setting now shows: SATA Operation = AHCI ✓</li>
+            </ul>
+          </li>
+          <li><strong>Apply the change</strong>
+            <ul>
+              <li>Click <strong>"Apply"</strong> button at bottom</li>
+              <li>Confirm popup: Click <strong>"Yes"</strong></li>
+            </ul>
+          </li>
+        </ol>
 
-Security → Absolute® → Absolute®
-    ├── Current: Enabled
-    └── Change to: Permanently Disabled (⚠️ Irreversible)</pre>
+        <h4>🔹 Step 3: Disable Secure Boot</h4>
+        <ol>
+          <li><strong>Navigate to Security tab</strong>
+            <ul><li>Click on <strong>"Security"</strong> tab at top</li></ul>
+          </li>
+          <li><strong>Find Secure Boot option</strong>
+            <ul>
+              <li>Look for <strong>"Secure Boot"</strong> section</li>
+              <li>Find <strong>"Secure Boot Enable"</strong> setting</li>
+              <li>Current value will be <strong>"Enabled"</strong></li>
+            </ul>
+          </li>
+          <li><strong>Disable Secure Boot</strong>
+            <ul>
+              <li>Click on <strong>"Enabled"</strong> dropdown</li>
+              <li>Select <strong>"Disabled"</strong></li>
+              <li>Setting now shows: Secure Boot Enable = Disabled ✓</li>
+            </ul>
+          </li>
+        </ol>
 
-        <h4>Save & Exit</h4>
-        <ul>
-          <li>Press <code>F10</code> or navigate to Exit tab</li>
-          <li>Select "Save & Exit"</li>
-          <li>Confirm "Yes" to save changes</li>
-          <li>System will reboot automatically</li>
-        </ul>
+        <h4>🔹 Step 4: Disable Absolute/Computrace (Optional)</h4>
+        <ol>
+          <li><strong>Still in Security tab</strong>
+            <ul><li>Scroll down to find <strong>"Absolute®"</strong> section</li></ul>
+          </li>
+          <li><strong>Check current setting</strong>
+            <ul>
+              <li>Look at current value (probably <strong>"Enabled"</strong>)</li>
+              <li><strong>⚠️ Warning:</strong> "Permanently Disabled" cannot be undone!</li>
+            </ul>
+          </li>
+          <li><strong>Choose your option</strong>
+            <ul>
+              <li><strong>Safe choice:</strong> Select <strong>"Disabled"</strong> (can re-enable later)</li>
+              <li><strong>Privacy choice:</strong> Select <strong>"Permanently Disabled"</strong> (irreversible)</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h4>🔹 Step 5: Save & Exit</h4>
+        <ol>
+          <li><strong>Save changes</strong>
+            <ul>
+              <li>Press <strong>F10</strong> key (Save & Exit shortcut)</li>
+              <li>OR click <strong>"Exit"</strong> tab, then <strong>"Save & Exit"</strong></li>
+            </ul>
+          </li>
+          <li><strong>Confirm save</strong>
+            <ul>
+              <li>Popup asks: "Save configuration changes and exit?"</li>
+              <li>Click <strong>"Yes"</strong></li>
+            </ul>
+          </li>
+          <li><strong>System reboots</strong>
+            <ul>
+              <li>Laptop restarts automatically</li>
+              <li>Changes are now permanent</li>
+              <li><strong>Windows may not boot</strong> (this is expected - you're installing Arch!)</li>
+            </ul>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
@@ -494,34 +573,126 @@ Reboot Into Firmware Interface</div>
     </div>
     <div class="pill-content">
       <div class="pill-inner">
-        <h4>Download Arch Linux ISO</h4>
-        <ul>
-          <li>Get latest from: <code>archlinux.org/download/</code></li>
-          <li>File size: ~650MB (changes monthly)</li>
-          <li>Verify checksum (optional but recommended)</li>
-        </ul>
-        
-        <h4>Flash to USB Drive</h4>
-        <p><strong>Windows:</strong> Use Rufus, balenaEtcher, or dd for Windows</p>
-        <pre>Rufus Settings:
-├── Partition scheme: GPT
-├── Target system: UEFI (non CSM)
-├── File system: FAT32
-└── Cluster size: Default</pre>
-        
-        <p><strong>Linux/macOS:</strong> Use dd command</p>
-        <pre># Find USB device
-lsblk
-# Flash (replace sdX with your USB)
-sudo dd if=archlinux.iso of=/dev/sdX bs=4M status=progress
-sudo sync</pre>
-        
-        <h4>USB Drive Requirements</h4>
-        <ul>
-          <li>Minimum 2GB capacity</li>
-          <li>USB 2.0 or faster (USB 3.0 recommended)</li>
-          <li>Will be completely erased</li>
-        </ul>
+        <h4>🔹 Step 1: Download Arch Linux ISO</h4>
+        <ol>
+          <li><strong>Go to official download page</strong>
+            <ul>
+              <li>Visit: <code>archlinux.org/download/</code></li>
+              <li>Look for section: "Download Release Information"</li>
+            </ul>
+          </li>
+          <li><strong>Download the ISO file</strong>
+            <ul>
+              <li>File name: <code>archlinux-YYYY.MM.DD-x86_64.iso</code></li>
+              <li>Size: ~650-700MB (changes monthly)</li>
+              <li>Choose a nearby mirror for faster download</li>
+            </ul>
+          </li>
+          <li><strong>Verify download (recommended)</strong>
+            <ul>
+              <li>Download <code>sha256sums.txt</code> from same page</li>
+              <li>Windows: Use HashCheck or <code>certutil -hashfile filename SHA256</code></li>
+              <li>Linux/Mac: <code>sha256sum archlinux*.iso</code></li>
+              <li>Compare output with sha256sums.txt</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h4>🔹 Step 2: Prepare USB Drive</h4>
+        <ol>
+          <li><strong>Get a USB drive</strong>
+            <ul>
+              <li>Minimum: 2GB capacity</li>
+              <li>Recommended: USB 3.0 for faster boot</li>
+              <li><strong>⚠️ Will be completely erased!</strong></li>
+            </ul>
+          </li>
+          <li><strong>Insert USB drive</strong>
+            <ul>
+              <li>Plug into your computer</li>
+              <li>Note the drive letter (Windows) or device name (Linux/Mac)</li>
+              <li>Backup any important files first</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h4>🔹 Step 3A: Flash with Rufus (Windows - Recommended)</h4>
+        <ol>
+          <li><strong>Download and run Rufus</strong>
+            <ul>
+              <li>Get from: <code>rufus.ie</code></li>
+              <li>No installation needed - just run the .exe</li>
+            </ul>
+          </li>
+          <li><strong>Configure Rufus settings</strong>
+            <ul>
+              <li><strong>Device:</strong> Select your USB drive</li>
+              <li><strong>Boot selection:</strong> Click "SELECT" → choose your Arch ISO</li>
+              <li><strong>Partition scheme:</strong> GPT</li>
+              <li><strong>Target system:</strong> UEFI (non CSM)</li>
+              <li><strong>File system:</strong> FAT32 (default)</li>
+              <li><strong>Cluster size:</strong> Default</li>
+            </ul>
+          </li>
+          <li><strong>Start the flash process</strong>
+            <ul>
+              <li>Click <strong>"START"</strong> button</li>
+              <li>If prompted about ISO Image mode: Select <strong>"Write in ISO Image mode"</strong></li>
+              <li>Confirm warning about erasing USB</li>
+              <li>Wait 2-5 minutes for completion</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h4>🔹 Step 3B: Flash with dd Command (Linux/Mac)</h4>
+        <ol>
+          <li><strong>Find your USB device</strong>
+            <ul>
+              <li>Run: <code>lsblk</code> (Linux) or <code>diskutil list</code> (Mac)</li>
+              <li>Look for your USB drive (match the size)</li>
+              <li>Note device name (e.g., <code>/dev/sdb</code> or <code>/dev/disk2</code>)</li>
+              <li><strong>⚠️ Double-check device name to avoid data loss!</strong></li>
+            </ul>
+          </li>
+          <li><strong>Unmount the drive</strong>
+            <ul>
+              <li>Linux: <code>sudo umount /dev/sdX*</code> (replace X)</li>
+              <li>Mac: <code>sudo diskutil unmountDisk /dev/diskN</code> (replace N)</li>
+            </ul>
+          </li>
+          <li><strong>Flash the ISO</strong>
+            <ul>
+              <li>Linux: <code>sudo dd if=archlinux.iso of=/dev/sdX bs=4M status=progress</code></li>
+              <li>Mac: <code>sudo dd if=archlinux.iso of=/dev/rdiskN bs=1m</code></li>
+              <li>Wait for completion (5-15 minutes)</li>
+              <li>Run: <code>sudo sync</code> to ensure data is written</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h4>🔹 Step 4: Verify USB Creation</h4>
+        <ol>
+          <li><strong>Safely eject USB</strong>
+            <ul>
+              <li>Windows: Right-click drive → "Eject"</li>
+              <li>Linux/Mac: <code>sudo eject /dev/sdX</code></li>
+            </ul>
+          </li>
+          <li><strong>Test the USB</strong>
+            <ul>
+              <li>Re-insert the USB drive</li>
+              <li>It should show as "ARCHISO" or similar</li>
+              <li>You should see files like <code>vmlinuz-linux</code></li>
+            </ul>
+          </li>
+          <li><strong>Ready for Dell 7420</strong>
+            <ul>
+              <li>Your bootable USB is ready</li>
+              <li>Label it "Arch Linux Live USB"</li>
+              <li>Keep it safe for the installation</li>
+            </ul>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
