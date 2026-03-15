@@ -2738,18 +2738,87 @@ dmesg | grep -i "graphics\|display"</div>
             <div class="pill-content">
               <p><strong>Multiple ways to make text larger:</strong></p>
               
-              <h4>1. System-wide scaling (Best for high DPI)</h4>
-              <div class="cmd"># Set global scale factor for your monitor
-wlr-randr --output eDP-1 --scale 1.25    # Laptop screen
-wlr-randr --output HDMI-A-1 --scale 1.15 # External 1440p
-wlr-randr --output HDMI-A-1 --scale 1.0  # External 1080p</div>
+              <div class="system-scaling-options">
+                <div class="scaling-method">
+                  <div class="method-title">🎯 Method 1: Monitor Scaling (Best)</div>
+                  <div class="method-desc">Changes how your monitor displays everything</div>
+                  <div class="method-pros">✅ Affects everything uniformly</div>
+                  <div class="method-cons">❌ May blur some elements</div>
+                  <a href="#monitor-scaling-deep" class="detail-link">📚 Complete monitor scaling guide</a>
+                </div>
+                
+                <div class="scaling-method">
+                  <div class="method-title">🖥️ Method 2: Environment Variables</div>
+                  <div class="method-desc">Tells applications to scale themselves</div>
+                  <div class="method-pros">✅ Crisp text and UI elements</div>
+                  <div class="method-cons">❌ Some apps ignore it</div>
+                  <a href="#env-scaling-deep" class="detail-link">📚 Environment scaling guide</a>
+                </div>
+                
+                <div class="scaling-method">
+                  <div class="method-title">🎨 Method 3: Font Configuration</div>
+                  <div class="method-desc">Changes default font sizes system-wide</div>
+                  <div class="method-pros">✅ Very precise control</div>
+                  <div class="method-cons">❌ UI elements stay small</div>
+                  <a href="#font-config-deep" class="detail-link">📚 Font configuration guide</a>
+                </div>
+              </div>
               
-              <h4>2. Browser text zoom (Quick fix)</h4>
-              <ul>
-                <li><strong>Firefox/Chrome:</strong> Ctrl + Plus to zoom in, Ctrl + Minus to zoom out</li>
-                <li><strong>Default zoom:</strong> Ctrl + 0 (zero)</li>
-                <li><strong>Permanent:</strong> Set default zoom to 125% or 150% in browser settings</li>
-              </ul>
+              <div class="cmd-label">Commands for your LG HDR 4K + Dell 7420:</div>
+              <div class="cmd"># Monitor scaling (hyprctl - always works)
+hyprctl keyword monitor eDP-1,1920x1200,0x0,1.25     # Dell laptop
+hyprctl keyword monitor HDMI-A-1,3840x2160,1920x0,2.0 # LG 4K HDR
+
+# Alternative: wlr-randr (if you installed it)
+wlr-randr --output eDP-1 --scale 1.25    # Dell laptop
+wlr-randr --output HDMI-A-1 --scale 2.0  # LG 4K HDR
+
+# Environment scaling (add to ~/.bashrc or ~/.zshrc)
+export GDK_SCALE=1.5          # GTK apps (most Linux apps)
+export QT_SCALE_FACTOR=1.5    # Qt apps (some apps)
+export XCURSOR_SIZE=32        # Bigger mouse cursor</div>
+              
+              <div class="text-scaling-visual">
+                <div class="scaling-title">📏 Text Scaling Methods (Ctrl+ doesn't work? Try these!)</div>
+                <div class="scaling-grid">
+                  <div class="scaling-option">
+                    <div class="scaling-icon">🌐</div>
+                    <div class="scaling-name">Browser Menu</div>
+                    <div class="scaling-steps">Settings → Zoom → 125%</div>
+                    <a href="#browser-zoom-guide" class="detail-link">📚 Browser zoom guide</a>
+                  </div>
+                  <div class="scaling-option">
+                    <div class="scaling-icon">⌨️</div>
+                    <div class="scaling-name">Alternative Keys</div>
+                    <div class="scaling-steps">Ctrl+Scroll | Alt+View Menu</div>
+                    <a href="#keyboard-alternatives" class="detail-link">📚 All keyboard alternatives</a>
+                  </div>
+                  <div class="scaling-option">
+                    <div class="scaling-icon">🖱️</div>
+                    <div class="scaling-name">Mouse Control</div>
+                    <div class="scaling-steps">Right-click → Zoom | Mouse wheel</div>
+                    <a href="#mouse-zoom-guide" class="detail-link">📚 Mouse control guide</a>
+                  </div>
+                  <div class="scaling-option">
+                    <div class="scaling-icon">🔧</div>
+                    <div class="scaling-name">System Settings</div>
+                    <div class="scaling-steps">DPI scaling | Font size</div>
+                    <a href="#system-scaling-guide" class="detail-link">📚 System-wide scaling</a>
+                  </div>
+                  <div class="scaling-option">
+                    <div class="scaling-icon">🎨</div>
+                    <div class="scaling-name">Terminal Size</div>
+                    <div class="scaling-steps">Font size 14-18pt</div>
+                    <a href="#terminal-config-guide" class="detail-link">📚 Terminal customization</a>
+                  </div>
+                  <div class="scaling-option">
+                    <div class="scaling-icon">💻</div>
+                    <div class="scaling-name">App-Specific</div>
+                    <div class="scaling-steps">Each app has settings</div>
+                    <a href="#app-scaling-guide" class="detail-link">📚 Per-app scaling guide</a>
+                  </div>
+                </div>
+              </div>
               
               <h4>3. Install additional fonts (including Calibri-like fonts)</h4>
               <div class="cmd"># Install Microsoft-compatible fonts
