@@ -491,15 +491,72 @@
 # Monitor eDP-1 (ID 0): 1920x1200@60.00Hz at 0x0
 # Monitor HDMI-A-1 (ID 1): 1920x1080@60.00Hz at 1920x0</div>
           
-          <div class="cmd-label">Set scaling for your monitors:</div>
-          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Dell 7420 laptop screen (recommended)
-wlr-randr --output eDP-1 --scale 1.25
+          <div class="pill">
+            <div class="pill-header">
+              <span class="pill-title">🧠 UNDERSTAND: What is Monitor Scaling?</span>
+              <span class="pill-arrow">▼</span>
+            </div>
+            <div class="pill-content">
+              <p><strong>Problem:</strong> Your Dell 7420 has a high-density screen (160 DPI) but external monitors have different densities. Without scaling, text appears inconsistent across monitors.</p>
+              
+              <p><strong>Solution:</strong> Scaling tells your system "make everything X times bigger" so text appears the same size across all monitors.</p>
+              
+              <p><strong>Monitor Types & Scaling:</strong></p>
+              <ul>
+                <li><strong>Dell 7420 laptop:</strong> 1920×1200 in 14" = 160 DPI → 1.25× scaling</li>
+                <li><strong>1080p monitor:</strong> 1920×1080 in 24" = 96 DPI → 1.0× scaling</li>
+                <li><strong>LG HDR 4K monitor:</strong> 3840×2160 = Ultra HD → 2.0× scaling</li>
+                <li><strong>1440p monitor:</strong> 2560×1440 = QHD → 1.5× scaling</li>
+              </ul>
+              
+              <p><strong>Why your LG 4K needs 2.0×:</strong> Without scaling, everything would be 4x smaller than normal - completely unreadable!</p>
+            </div>
+          </div>
+          
+          <div class="pill">
+            <div class="pill-header">
+              <span class="pill-title">⚖️ TOOL COMPARISON: hyprctl vs wlr-randr vs xrandr</span>
+              <span class="pill-arrow">▼</span>
+            </div>
+            <div class="pill-content">
+              <table>
+                <tr><th>Tool</th><th>Pros</th><th>Cons</th><th>Availability</th></tr>
+                <tr>
+                  <td><strong>hyprctl</strong></td>
+                  <td>✅ Built-in to Hyprland<br>✅ No installation needed<br>✅ Wayland-native</td>
+                  <td>❌ Only works in Hyprland<br>❌ Limited advanced features</td>
+                  <td>🟢 Always available</td>
+                </tr>
+                <tr>
+                  <td><strong>wlr-randr</strong></td>
+                  <td>✅ More features<br>✅ Works with any wlroots compositor</td>
+                  <td>❌ NOT in Arch repos!<br>❌ Must build from source<br>❌ Extra complexity</td>
+                  <td>🔴 Not available easily</td>
+                </tr>
+                <tr>
+                  <td><strong>xrandr</strong></td>
+                  <td>✅ Widely documented<br>✅ Many tutorials online</td>
+                  <td>❌ X11 only<br>❌ Doesn't work in Wayland</td>
+                  <td>🟡 Wrong display server</td>
+                </tr>
+              </table>
+              
+              <p><strong>Recommendation:</strong> Use <code>hyprctl</code> - it's guaranteed to work and does everything you need for monitor setup.</p>
+            </div>
+          </div>
+          
+          <div class="cmd-label">Set scaling for your monitors (using hyprctl - no packages needed!):</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Dell 7420 laptop screen (make text readable)
+hyprctl keyword monitor eDP-1,1920x1200,0x0,1.25
 
-# External 1080p monitor
-wlr-randr --output HDMI-A-1 --mode 1920x1080 --scale 1.0
+# LG HDR 4K monitor (prevent microscopic text!)
+hyprctl keyword monitor HDMI-A-1,3840x2160,1920x0,2.0
 
-# External 4K monitor  
-wlr-randr --output HDMI-A-1 --mode 3840x2160 --scale 2.0</div>
+# Alternative: 1080p monitor if you have one instead
+# hyprctl keyword monitor HDMI-A-1,1920x1080,1920x0,1.0
+
+# Alternative: 1440p monitor
+# hyprctl keyword monitor HDMI-A-1,2560x1440,1920x0,1.5</div>
 
           <div class="cmd-label">Set application scaling:</div>
           <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># For GTK apps (most Linux apps)
