@@ -2441,12 +2441,88 @@ wlr-randr --output HDMI-A-1 --scale 1.0  # External 1080p</div>
                 <li><strong>Permanent:</strong> Set default zoom to 125% or 150% in browser settings</li>
               </ul>
               
-              <h4>3. Terminal text size</h4>
+              <h4>3. Install additional fonts (including Calibri-like fonts)</h4>
+              <div class="cmd"># Install Microsoft-compatible fonts
+sudo pacman -S ttf-liberation ttf-dejavu ttf-opensans
+yay -S ttf-ms-fonts ttf-vista-fonts ttf-win11-auto
+
+# Install Calibri-like alternatives
+sudo pacman -S ttf-carlito    # Calibri alternative
+sudo pacman -S ttf-caladea   # Cambria alternative  
+sudo pacman -S ttf-noto-sans # Google's clean font
+
+# Programming fonts
+sudo pacman -S ttf-jetbrains-mono-nerd ttf-fira-code
+yay -S ttf-cascadia-code</div>
+
+              <div class="alt-path-selector" data-altid="font-choice">
+                <div class="alt-path-label">🔀 Choose your preferred system font:</div>
+                <div class="alt-tabs">
+                  <div class="alt-tab active" data-alt="calibri" onclick="selectAlt(this.closest('.alt-path-selector'),'calibri',this)">📝 Calibri-style</div>
+                  <div class="alt-tab" data-alt="modern" onclick="selectAlt(this.closest('.alt-path-selector'),'modern',this)">🎨 Modern</div>
+                  <div class="alt-tab" data-alt="coding" onclick="selectAlt(this.closest('.alt-path-selector'),'coding',this)">💻 Coding</div>
+                </div>
+                <div class="alt-content active" data-alt="calibri">
+                  <p><strong>Calibri-like fonts (clean, professional):</strong></p>
+                  <div class="cmd"># Set Carlito as system font (Calibri alternative)
+gsettings set org.gnome.desktop.interface font-name 'Carlito 11'
+gsettings set org.gnome.desktop.interface document-font-name 'Carlito 11'
+
+# Or Segoe UI alternative
+gsettings set org.gnome.desktop.interface font-name 'Noto Sans 11'</div>
+                  <ul>
+                    <li><strong>Carlito:</strong> Google's Calibri alternative, identical metrics</li>
+                    <li><strong>Liberation Sans:</strong> Arial/Helvetica alternative</li>
+                    <li><strong>Noto Sans:</strong> Google's universal font, supports all languages</li>
+                    <li><strong>DejaVu Sans:</strong> Classic, readable, great for programming UIs</li>
+                  </ul>
+                </div>
+                <div class="alt-content" data-alt="modern">
+                  <p><strong>Modern, stylish fonts:</strong></p>
+                  <div class="cmd"># Set modern fonts
+gsettings set org.gnome.desktop.interface font-name 'Inter 11'
+# Or
+gsettings set org.gnome.desktop.interface font-name 'Source Sans Pro 11'</div>
+                  <ul>
+                    <li><strong>Inter:</strong> Designed for computer screens, very readable</li>
+                    <li><strong>Source Sans Pro:</strong> Adobe's professional font</li>
+                    <li><strong>Open Sans:</strong> Google's readable web font</li>
+                    <li><strong>Ubuntu:</strong> Friendly, modern, well-spaced</li>
+                  </ul>
+                </div>
+                <div class="alt-content" data-alt="coding">
+                  <p><strong>Programming/monospace fonts:</strong></p>
+                  <div class="cmd"># Terminal and code editor fonts
+# Kitty terminal
+echo "font_family JetBrains Mono" >> ~/.config/kitty/kitty.conf
+echo "font_size 12" >> ~/.config/kitty/kitty.conf
+
+# VS Code font
+echo '"editor.fontFamily": "JetBrains Mono, Fira Code, monospace"' > ~/.config/Code/User/settings.json</div>
+                  <ul>
+                    <li><strong>JetBrains Mono:</strong> Great for programming, ligatures support</li>
+                    <li><strong>Fira Code:</strong> Programming ligatures (== → ≡, != → ≠)</li>
+                    <li><strong>Cascadia Code:</strong> Microsoft's programming font</li>
+                    <li><strong>Noto Sans Mono:</strong> Clean monospace without ligatures</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4>4. Terminal text size and fonts</h4>
               <div class="cmd"># Kitty terminal - edit config
 mkdir -p ~/.config/kitty
-echo "font_size 14" >> ~/.config/kitty/kitty.conf
+cat >> ~/.config/kitty/kitty.conf << 'EOF'
+font_family      Carlito
+bold_font        Carlito Bold
+italic_font      Carlito Italic
+font_size        12
 
-# Or temporary zoom in terminal
+# Or for programming
+# font_family    JetBrains Mono
+# font_size      11
+EOF
+
+# Temporary zoom in terminal
 Ctrl + Shift + Plus  # Increase font size
 Ctrl + Shift + Minus # Decrease font size</div>
               
