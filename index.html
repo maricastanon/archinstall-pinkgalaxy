@@ -935,6 +935,166 @@ Reboot Into Firmware Interface</div>
     </div>
 
   </div>
+  
+  <!-- Comprehensive Wi-Fi Guide Pills -->
+  <div class="pill" onclick="togglePill(this)">
+    <div class="pill-header">
+      <span class="pill-icon">▶</span>
+      <span class="pill-title">🔍 Understanding Wi-Fi on Dell 7420</span>
+      <span class="pill-badge">Hardware</span>
+    </div>
+    <div class="pill-content">
+      <div class="pill-inner">
+        <h4>Dell 7420 Wi-Fi Hardware</h4>
+        <p><strong>Intel AX201 Wi-Fi 6 + Bluetooth:</strong></p>
+        <ul>
+          <li>802.11ax (Wi-Fi 6) - latest standard</li>
+          <li>Speeds up to 2.4Gbps</li>
+          <li>Bluetooth 5.2 integrated</li>
+          <li>Fully supported by Linux kernel 5.4+</li>
+        </ul>
+        
+        <h4>How Wi-Fi Works in Arch Live</h4>
+        <p><strong>Arch Live Environment includes:</strong></p>
+        <ul>
+          <li><code>iwd</code> (iNet Wireless Daemon) - modern Wi-Fi manager</li>
+          <li><code>iwctl</code> - interactive command-line interface</li>
+          <li>Automatic firmware loading from <code>linux-firmware</code> package</li>
+          <li>No NetworkManager by default (that comes later)</li>
+        </ul>
+        
+        <h4>Common Router Types & Compatibility</h4>
+        <ul>
+          <li><strong>FritzBox models:</strong> WPA2/WPA3, excellent Linux support</li>
+          <li><strong>Enterprise networks:</strong> WPA2-Enterprise may need manual setup</li>
+          <li><strong>Hidden networks:</strong> Can connect manually with SSID</li>
+          <li><strong>5GHz vs 2.4GHz:</strong> Dell 7420 supports both bands</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pill" onclick="togglePill(this)">
+    <div class="pill-header">
+      <span class="pill-icon">▶</span>
+      <span class="pill-title">📡 Alternative Connection Methods</span>
+      <span class="pill-badge">Options</span>
+    </div>
+    <div class="pill-content">
+      <div class="pill-inner">
+        <h4>Method 1: iwctl (Recommended - Already Shown Above)</h4>
+        <p>Interactive, beginner-friendly, built into Arch Live.</p>
+        
+        <h4>Method 2: nmcli (Advanced)</h4>
+        <p>If NetworkManager is available:</p>
+        <pre>nmcli device wifi list
+nmcli device wifi connect "NETWORK_NAME" password "PASSWORD"</pre>
+        
+        <h4>Method 3: wpa_supplicant (Manual)</h4>
+        <p>For complex enterprise networks:</p>
+        <pre># Generate config
+wpa_passphrase "NETWORK_NAME" "PASSWORD" &gt; /tmp/wpa.conf
+# Connect
+wpa_supplicant -B -i wlan0 -c /tmp/wpa.conf
+dhclient wlan0</pre>
+        
+        <h4>Method 4: USB Tethering (Emergency)</h4>
+        <p>If Wi-Fi fails completely:</p>
+        <ul>
+          <li>Connect Dell to phone via USB</li>
+          <li>Enable "USB tethering" on phone</li>
+          <li>Linux auto-detects as USB ethernet</li>
+          <li>Continue installation with mobile data</li>
+        </ul>
+        
+        <h4>Method 5: Ethernet Adapter</h4>
+        <p>USB-C to Ethernet adapter (if available):</p>
+        <ul>
+          <li>Plug adapter into Dell</li>
+          <li>Connect ethernet cable</li>
+          <li>Run: <code>dhclient enp0s3</code> (or similar interface)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pill" onclick="togglePill(this)">
+    <div class="pill-header">
+      <span class="pill-icon">▶</span>
+      <span class="pill-title">🚨 Wi-Fi Troubleshooting Guide</span>
+      <span class="pill-badge">Fix Issues</span>
+    </div>
+    <div class="pill-content">
+      <div class="pill-inner">
+        <h4>Problem: "No device found" or wlan0 missing</h4>
+        <p><strong>Diagnosis:</strong></p>
+        <pre># Check if Wi-Fi hardware is detected
+lspci | grep -i wireless
+# Check if driver is loaded
+lsmod | grep iwl
+# Check network interfaces
+ip link show</pre>
+        
+        <p><strong>Solutions:</strong></p>
+        <ol>
+          <li><strong>Reload Wi-Fi driver:</strong>
+            <pre>rmmod iwlwifi
+modprobe iwlwifi</pre>
+          </li>
+          <li><strong>Enable interface manually:</strong>
+            <pre>ip link set wlan0 up</pre>
+          </li>
+          <li><strong>Check firmware loading:</strong>
+            <pre>dmesg | grep iwlwifi</pre>
+          </li>
+        </ol>
+        
+        <h4>Problem: Can see networks but can't connect</h4>
+        <p><strong>Common causes & fixes:</strong></p>
+        <ul>
+          <li><strong>Wrong password:</strong> Try re-typing carefully</li>
+          <li><strong>Special characters:</strong> Use quotes: <code>"My Network!"</code></li>
+          <li><strong>Network congestion:</strong> Try 5GHz band if available</li>
+          <li><strong>Router MAC filtering:</strong> Add laptop's MAC to router whitelist</li>
+        </ul>
+        
+        <h4>Problem: Connection drops or unstable</h4>
+        <p><strong>Solutions:</strong></p>
+        <ol>
+          <li><strong>Check signal strength:</strong>
+            <pre>iwctl station wlan0 show</pre>
+          </li>
+          <li><strong>Move closer to router</strong> during installation</li>
+          <li><strong>Disable power saving:</strong>
+            <pre>iw dev wlan0 set power_save off</pre>
+          </li>
+        </ol>
+        
+        <h4>Problem: "Operation not permitted" errors</h4>
+        <p>Usually means interface conflicts:</p>
+        <pre># Kill conflicting processes
+killall wpa_supplicant NetworkManager
+# Restart iwd
+systemctl restart iwd
+# Try iwctl again</pre>
+        
+        <h4>Problem: Hidden network not visible</h4>
+        <p>Connect to hidden SSID manually:</p>
+        <pre># In iwctl
+station wlan0 connect "HIDDEN_NETWORK_NAME"</pre>
+        
+        <h4>Emergency: Complete Wi-Fi reset</h4>
+        <p>If nothing works:</p>
+        <pre># Stop all network services
+systemctl stop iwd systemd-networkd
+# Remove saved networks
+rm -rf /var/lib/iwd/*
+# Restart
+systemctl start iwd
+# Try iwctl again from scratch</pre>
+      </div>
+    </div>
+  </div>
 </div>
 
 
