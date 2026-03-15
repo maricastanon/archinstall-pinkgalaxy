@@ -2249,6 +2249,186 @@ makepkg -si</div>
       </div>
     </div>
 
+    <div class="step" data-id="hypr-monitor-setup" ">
+      <div class="step-header">
+        <div class="step-checkbox critical" onclick="toggleStep(this, event)"></div>
+        <div class="step-body">
+          <div class="step-title">Setup external monitor and fix display scaling</div>
+          <div class="step-meta"><span class="badge b-crit">DISPLAY FIX</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="pill">
+            <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
+              <span class="pill-icon">▶</span>
+              <span class="pill-title">🖥️ Why monitor setup is crucial</span>
+            </div>
+            <div class="pill-content">
+              <p><strong>Common display issues you're experiencing:</strong></p>
+              <ul>
+                <li><strong>Bottom content cut off:</strong> Wrong resolution/scaling on external monitor</li>
+                <li><strong>Laptop screen vs external monitor:</strong> Different DPI/scaling needed</li>
+                <li><strong>Text too small/large:</strong> Scaling factor mismatch</li>
+                <li><strong>Window positioning:</strong> Applications opening on wrong monitor</li>
+              </ul>
+              
+              <p><strong>Your Dell 7420 setup:</strong></p>
+              <ul>
+                <li><strong>Built-in screen:</strong> 14" 1920x1200 (160 DPI) - needs 1.25x scaling</li>
+                <li><strong>External monitor:</strong> Varies - needs proper detection and scaling</li>
+                <li><strong>USB-C/Thunderbolt:</strong> Can drive 4K monitors</li>
+                <li><strong>HDMI:</strong> Usually limited to 1080p/1440p</li>
+              </ul>
+              
+              <p><strong>What this step fixes:</strong> Proper resolution detection, correct scaling per monitor, fix cut-off content, and optimal text size.</p>
+            </div>
+          </div>
+
+          <div class="alt-path-selector" data-altid="monitor-detect">
+            <div class="alt-path-label">🔀 Monitor detection method:</div>
+            <div class="alt-tabs">
+              <div class="alt-tab active" data-alt="auto" onclick="selectAlt(this.closest('.alt-path-selector'),'auto',this)">🔍 Auto-detect</div>
+              <div class="alt-tab" data-alt="manual" onclick="selectAlt(this.closest('.alt-path-selector'),'manual',this)">⚙️ Manual setup</div>
+              <div class="alt-tab" data-alt="trouble" onclick="selectAlt(this.closest('.alt-path-selector'),'trouble',this)">🔧 Troubleshooting</div>
+            </div>
+            <div class="alt-content active" data-alt="auto">
+              <div class="cmd-label">Install display detection tools:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S wlr-randr xorg-xrandr</div>
+              
+              <div class="cmd-label">Detect connected monitors:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>wlr-randr</div>
+              
+              <p class="guide-p"><strong>Expected output example:</strong></p>
+              <div class="cmd"><span class="output">eDP-1 "Built-in Display" (connected)
+  1920x1200 px, 310x194 mm (157.42x157.42 dpi)
+  Position: 0,0
+  
+HDMI-A-1 "Samsung Monitor" (connected)
+  1920x1080 px, 510x287 mm (95.78x95.78 dpi)
+  Position: 1920,0</span></div>
+
+              <div class="pill">
+                <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
+                  <span class="pill-icon">▶</span>
+                  <span class="pill-title">📐 Calculate optimal scaling factors</span>
+                </div>
+                <div class="pill-content">
+                  <p><strong>DPI-based scaling calculation:</strong></p>
+                  <ul>
+                    <li><strong>96 DPI (typical 24" 1080p):</strong> scale = 1.0</li>
+                    <li><strong>110 DPI (typical 27" 1440p):</strong> scale = 1.15</li>
+                    <li><strong>140+ DPI (4K monitors):</strong> scale = 1.5 or 2.0</li>
+                    <li><strong>160 DPI (your laptop):</strong> scale = 1.25</li>
+                  </ul>
+                  
+                  <p><strong>Rule of thumb:</strong> Scale = DPI ÷ 96</p>
+                  <p><strong>Your laptop:</strong> 157 DPI ÷ 96 = 1.25x scaling</p>
+                </div>
+              </div>
+            </div>
+            <div class="alt-content" data-alt="manual">
+              <div class="cmd-label">List all available outputs:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>wlr-randr --list-all</div>
+              
+              <div class="cmd-label">Set specific monitor configuration:</div>
+              <div class="cmd"><span class="comment"># Example: External 1080p monitor on the right</span>
+wlr-randr --output eDP-1 --mode 1920x1200 --pos 0,0 --scale 1.25
+wlr-randr --output HDMI-A-1 --mode 1920x1080 --pos 1920,0 --scale 1.0</div>
+              
+              <div class="cmd-label">Common monitor configurations:</div>
+              <div class="cmd"><span class="comment"># 4K monitor (needs 2x scaling)</span>
+wlr-randr --output DP-1 --mode 3840x2160 --scale 2.0
+
+<span class="comment"># 1440p monitor (needs 1.15x scaling)</span>
+wlr-randr --output HDMI-A-1 --mode 2560x1440 --scale 1.15
+
+<span class="comment"># Vertical monitor setup</span>
+wlr-randr --output HDMI-A-1 --transform 90</div>
+
+              <div class="pill">
+                <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
+                  <span class="pill-icon">▶</span>
+                  <span class="pill-title">📍 Monitor positioning guide</span>
+                </div>
+                <div class="pill-content">
+                  <p><strong>Position coordinates:</strong></p>
+                  <ul>
+                    <li><strong>--pos 0,0:</strong> Primary position (top-left)</li>
+                    <li><strong>--pos 1920,0:</strong> To the right of 1920px wide monitor</li>
+                    <li><strong>--pos 0,1200:</strong> Below a 1200px tall monitor</li>
+                    <li><strong>--pos -1920,0:</strong> To the left (negative X)</li>
+                  </ul>
+                  
+                  <p><strong>Your Dell 7420 scenarios:</strong></p>
+                  <ul>
+                    <li><strong>Laptop + external on right:</strong> eDP-1 at 0,0, external at 1920,0</li>
+                    <li><strong>Laptop + external above:</strong> external at 0,0, eDP-1 at 0,1080</li>
+                    <li><strong>External only:</strong> --output eDP-1 --off</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="alt-content" data-alt="trouble">
+              <div class="cmd-label">Check if external monitor is detected:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>wlr-randr | grep -E "(connected|disconnected)"</div>
+              
+              <div class="cmd-label">Force monitor refresh:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo systemctl restart display-manager</div>
+              
+              <div class="cmd-label">Check kernel driver:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>lspci | grep VGA
+dmesg | grep -i "graphics\|display"</div>
+
+              <div class="pill">
+                <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
+                  <span class="pill-icon">▶</span>
+                  <span class="pill-title">🔧 Common monitor problems and solutions</span>
+                </div>
+                <div class="pill-content">
+                  <p><strong>Monitor not detected:</strong></p>
+                  <ul>
+                    <li>Try different cable (USB-C vs HDMI vs DP)</li>
+                    <li>Check monitor input source settings</li>
+                    <li>Restart with monitor connected</li>
+                    <li>Update Intel graphics driver: <code>sudo pacman -S mesa intel-media-driver</code></li>
+                  </ul>
+                  
+                  <p><strong>Wrong resolution/cut-off content:</strong></p>
+                  <ul>
+                    <li>Monitor reports wrong EDID info</li>
+                    <li>Force specific mode: <code>--mode 1920x1080</code></li>
+                    <li>Adjust scaling: <code>--scale 1.0</code> or <code>--scale 1.25</code></li>
+                  </ul>
+                  
+                  <p><strong>Text too small/large:</strong></p>
+                  <ul>
+                    <li>High DPI monitors need <code>--scale 1.5</code> or <code>--scale 2.0</code></li>
+                    <li>Your laptop screen: <code>--scale 1.25</code></li>
+                    <li>Standard 1080p monitors: <code>--scale 1.0</code></li>
+                  </ul>
+                  
+                  <p><strong>Performance issues:</strong></p>
+                  <ul>
+                    <li>Disable laptop screen: <code>wlr-randr --output eDP-1 --off</code></li>
+                    <li>Lower refresh rate: <code>--mode 1920x1080@30</code></li>
+                    <li>Check GPU load: <code>intel_gpu_top</code></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmd-label">Test your configuration:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Open a terminal and test if bottom content is visible
+echo "If you can see this line, your display is properly configured! 🌸"</div>
+          
+          <div class="callout c-info">ℹ️ <strong>Pro tip:</strong> Take note of your working configuration and add it to your Hyprland config in the next step for permanent setup.</div>
+        </div>
+      </div>
+    </div>
+
     <div class="step" data-id="hypr-config" ">
       <div class="step-header">
         <div class="step-checkbox" onclick="toggleStep(this, event)"></div>
