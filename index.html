@@ -79,6 +79,8 @@
   <div class="topbar-btns">
     <button class="tb-btn" id="btn-notebook">📖 Notebook</button>
     <button class="tb-btn" id="btn-focus">🎯 Focus</button>
+    <button class="tb-btn" onclick="expandAllPills()">📖 Expand All</button>
+    <button class="tb-btn" onclick="collapseAllPills()">📕 Collapse</button>
     <button class="tb-btn" id="btn-save">💾 Save</button>
     <button class="tb-btn" id="btn-sync" onclick="window.CloudSync?.forcSync()">🔄 Sync</button>
     <button class="tb-btn pink" id="btn-reset">↺ Reset</button>
@@ -210,6 +212,120 @@
     </div>
 
   </div>
+  
+  <!-- Comprehensive BIOS Guide Pills -->
+  <div class="pill" onclick="togglePill(this)">
+    <div class="pill-header">
+      <span class="pill-icon">▶</span>
+      <span class="pill-title">🔍 Why These BIOS Settings Matter</span>
+      <span class="pill-badge">Essential</span>
+    </div>
+    <div class="pill-content">
+      <div class="pill-inner">
+        <h4>Storage Controller (RAID → AHCI)</h4>
+        <p>Modern Linux needs direct disk access. RAID mode hides the NVMe controller behind Intel's RAID abstraction, making the SSD invisible to Linux installers.</p>
+        <ul>
+          <li><strong>AHCI:</strong> Advanced Host Controller Interface - native SATA/NVMe protocol</li>
+          <li><strong>RAID On:</strong> Intel RST (Rapid Storage Technology) - Windows-only feature</li>
+          <li><strong>Impact:</strong> Without this change, <code>fdisk -l</code> shows no drives</li>
+        </ul>
+        
+        <h4>Secure Boot Disable</h4>
+        <p>Prevents unsigned bootloaders. Arch Linux uses unsigned GRUB by default.</p>
+        <ul>
+          <li>Alternative: Set up custom Secure Boot keys (advanced)</li>
+          <li>Why disable: Simplifies installation, no compatibility issues</li>
+        </ul>
+        
+        <h4>Absolute® (Computrace)</h4>
+        <p>Intel vPro anti-theft technology with remote wipe capabilities.</p>
+        <ul>
+          <li><strong>Privacy concern:</strong> Phones home to Absolute Software servers</li>
+          <li><strong>Permanently disabled:</strong> Cannot be re-enabled later</li>
+          <li>Alternative: Leave "Disabled" (can re-enable later)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pill" onclick="togglePill(this)">
+    <div class="pill-header">
+      <span class="pill-icon">▶</span>
+      <span class="pill-title">⚙️ Step-by-Step BIOS Navigation</span>
+      <span class="pill-badge">Guide</span>
+    </div>
+    <div class="pill-content">
+      <div class="pill-inner">
+        <h4>Accessing Dell 7420 BIOS</h4>
+        <ol>
+          <li>Power off completely (not sleep/hibernate)</li>
+          <li>Press power button</li>
+          <li>Immediately tap <code>F2</code> repeatedly until BIOS appears</li>
+          <li>If boot starts, restart and try <code>F12</code> → BIOS Setup</li>
+        </ol>
+        
+        <h4>Navigation Map</h4>
+        <pre>Main → System Configuration → SATA Operation
+    ├── RAID On → Change to AHCI
+    └── Apply → Yes
+
+Security → Secure Boot → Secure Boot Enable
+    └── Enabled → Change to Disabled
+
+Security → Absolute® → Absolute®
+    ├── Current: Enabled
+    └── Change to: Permanently Disabled (⚠️ Irreversible)</pre>
+
+        <h4>Save & Exit</h4>
+        <ul>
+          <li>Press <code>F10</code> or navigate to Exit tab</li>
+          <li>Select "Save & Exit"</li>
+          <li>Confirm "Yes" to save changes</li>
+          <li>System will reboot automatically</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pill" onclick="togglePill(this)">
+    <div class="pill-header">
+      <span class="pill-icon">▶</span>
+      <span class="pill-title">🚨 Troubleshooting Common Issues</span>
+      <span class="pill-badge">Help</span>
+    </div>
+    <div class="pill-content">
+      <div class="pill-inner">
+        <h4>Can't Access BIOS</h4>
+        <ul>
+          <li><strong>Fast Boot enabled:</strong> Hold Shift while clicking Restart in Windows</li>
+          <li><strong>Wrong timing:</strong> Start pressing F2 before Dell logo appears</li>
+          <li><strong>USB keyboard:</strong> Try built-in laptop keyboard instead</li>
+        </ul>
+        
+        <h4>No AHCI Option</h4>
+        <ul>
+          <li>Look for "SATA Operation" instead of "Storage Mode"</li>
+          <li>May be under "Storage" → "SATA/NVMe Configuration"</li>
+          <li>Some versions show "Intel RST" vs "AHCI"</li>
+        </ul>
+        
+        <h4>Windows Won't Boot After AHCI Change</h4>
+        <ul>
+          <li><strong>Expected behavior:</strong> Windows needs RAID drivers</li>
+          <li><strong>Solution 1:</strong> Boot Windows Safe Mode, install AHCI drivers</li>
+          <li><strong>Solution 2:</strong> Continue with Arch installation (dual boot fix later)</li>
+        </ul>
+        
+        <h4>BIOS Password Protected</h4>
+        <ul>
+          <li>Contact Dell support with service tag</li>
+          <li>Or use master password (model-specific)</li>
+          <li>Last resort: CMOS reset (requires disassembly)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <div class="callout c-info">🔑 Key hardware facts: i7-1255U · 16GB RAM · NVMe SSD (nvme0n1) · Intel Iris Xe · Wi-Fi 6 (AX201) · BIOS Version 1.30.1</div>
 </div>
 
@@ -367,6 +483,142 @@ Reboot Into Firmware Interface</div>
       </div>
     </div>
 
+  </div>
+  
+  <!-- Comprehensive USB Boot Guide Pills -->
+  <div class="pill" onclick="togglePill(this)">
+    <div class="pill-header">
+      <span class="pill-icon">▶</span>
+      <span class="pill-title">💿 Creating the Arch USB Drive</span>
+      <span class="pill-badge">Prerequisite</span>
+    </div>
+    <div class="pill-content">
+      <div class="pill-inner">
+        <h4>Download Arch Linux ISO</h4>
+        <ul>
+          <li>Get latest from: <code>archlinux.org/download/</code></li>
+          <li>File size: ~650MB (changes monthly)</li>
+          <li>Verify checksum (optional but recommended)</li>
+        </ul>
+        
+        <h4>Flash to USB Drive</h4>
+        <p><strong>Windows:</strong> Use Rufus, balenaEtcher, or dd for Windows</p>
+        <pre>Rufus Settings:
+├── Partition scheme: GPT
+├── Target system: UEFI (non CSM)
+├── File system: FAT32
+└── Cluster size: Default</pre>
+        
+        <p><strong>Linux/macOS:</strong> Use dd command</p>
+        <pre># Find USB device
+lsblk
+# Flash (replace sdX with your USB)
+sudo dd if=archlinux.iso of=/dev/sdX bs=4M status=progress
+sudo sync</pre>
+        
+        <h4>USB Drive Requirements</h4>
+        <ul>
+          <li>Minimum 2GB capacity</li>
+          <li>USB 2.0 or faster (USB 3.0 recommended)</li>
+          <li>Will be completely erased</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pill" onclick="togglePill(this)">
+    <div class="pill-header">
+      <span class="pill-icon">▶</span>
+      <span class="pill-title">🔧 Boot Priority & UEFI vs BIOS</span>
+      <span class="pill-badge">Important</span>
+    </div>
+    <div class="pill-content">
+      <div class="pill-inner">
+        <h4>Understanding Boot Modes</h4>
+        <p><strong>UEFI (Unified Extensible Firmware Interface):</strong></p>
+        <ul>
+          <li>Modern replacement for BIOS</li>
+          <li>Supports drives >2TB</li>
+          <li>Faster boot times</li>
+          <li>Better security features</li>
+          <li>Required for modern Arch installation</li>
+        </ul>
+        
+        <p><strong>Legacy BIOS:</strong></p>
+        <ul>
+          <li>Older standard (1980s)</li>
+          <li>MBR partition table only</li>
+          <li>Limited to 4 primary partitions</li>
+          <li>Not recommended for new installations</li>
+        </ul>
+        
+        <h4>Dell 7420 Boot Menu</h4>
+        <pre>F12 Boot Menu Options:
+├── UEFI: USB Device (Arch Linux)  ← Choose this
+├── USB Device (Arch Linux)       ← Legacy BIOS (avoid)
+├── Windows Boot Manager
+└── UEFI: Built-in EFI Shell</pre>
+        
+        <h4>Verification Commands</h4>
+        <ul>
+          <li><code>cat /sys/firmware/efi/fw_platform_size</code> → Should show "64"</li>
+          <li><code>efivar -l</code> → Should list EFI variables</li>
+          <li><code>ls /sys/firmware/efi</code> → Should show EFI directory</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pill" onclick="togglePill(this)">
+    <div class="pill-header">
+      <span class="pill-icon">▶</span>
+      <span class="pill-title">🚨 Common Boot Problems & Solutions</span>
+      <span class="pill-badge">Troubleshooting</span>
+    </div>
+    <div class="pill-content">
+      <div class="pill-inner">
+        <h4>USB Not Detected</h4>
+        <ul>
+          <li><strong>Wrong USB port:</strong> Try different ports (USB 2.0 vs 3.0)</li>
+          <li><strong>Fast Boot enabled:</strong> Disable in BIOS</li>
+          <li><strong>USB not bootable:</strong> Re-flash with proper tool</li>
+          <li><strong>Secure Boot blocking:</strong> Already disabled in BIOS setup</li>
+        </ul>
+        
+        <h4>Black Screen After Boot Selection</h4>
+        <ul>
+          <li><strong>Graphics driver issue:</strong> Add <code>nomodeset</code> to boot parameters</li>
+          <li><strong>Memory problem:</strong> Try <code>memtest86+</code> option first</li>
+          <li><strong>Hardware incompatibility:</strong> Use older Arch ISO</li>
+        </ul>
+        
+        <h4>Kernel Panic on Boot</h4>
+        <ul>
+          <li>Wait 30 seconds - sometimes resolves automatically</li>
+          <li>Try different USB port</li>
+          <li>Re-download and re-flash ISO</li>
+          <li>Check RAM with memtest86+</li>
+        </ul>
+        
+        <h4>Wrong Boot Mode (Legacy instead of UEFI)</h4>
+        <ul>
+          <li><strong>Symptoms:</strong> No /sys/firmware/efi directory</li>
+          <li><strong>Fix:</strong> Reboot, press F12, select UEFI option</li>
+          <li><strong>Prevention:</strong> Disable CSM (Compatibility Support Module) in BIOS</li>
+        </ul>
+        
+        <h4>Emergency Recovery</h4>
+        <p>If completely stuck:</p>
+        <ol>
+          <li>Hold power button 10 seconds (force shutdown)</li>
+          <li>Remove USB drive</li>
+          <li>Boot into BIOS (F2)</li>
+          <li>Reset to defaults (F9)</li>
+          <li>Reconfigure essential settings</li>
+          <li>Try again with fresh USB</li>
+        </ol>
+      </div>
+    </div>
   </div>
 </div>
 

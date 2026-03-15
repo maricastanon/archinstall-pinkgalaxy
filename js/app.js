@@ -43,6 +43,26 @@ function saveNotebook() { localStorage.setItem(NB_KEY, JSON.stringify(notebook))
 function savePostits() { localStorage.setItem(POSTITS_KEY, JSON.stringify(postits)); }
 function saveAltPaths() { localStorage.setItem(ALT_KEY, JSON.stringify(altPaths)); }
 
+// ═══ PILL EXPANDABLES ═══
+function togglePill(element) {
+  element.classList.toggle('expanded');
+  saveState();
+}
+
+function expandAllPills() {
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.classList.add('expanded');
+  });
+  saveState();
+}
+
+function collapseAllPills() {
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.classList.remove('expanded');
+  });
+  saveState();
+}
+
 // ── CHAPTERS ──
 function showChapter(idx) {
   document.querySelectorAll('.chapter').forEach(c => c.classList.remove('active'));
