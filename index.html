@@ -2574,6 +2574,276 @@ firefox &
       </div>
     </div>
 
+    <div class="step" data-id="hypr-themes" ">
+      <div class="step-header">
+        <div class="step-checkbox" onclick="toggleStep(this, event)"></div>
+        <div class="step-body">
+          <div class="step-title">Choose theme colors and decorations</div>
+          <div class="step-meta"><span class="badge b-pink">THEMES</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="alt-path-selector" data-altid="theme-style">
+            <div class="alt-path-label">🎨 Choose your theme style:</div>
+            <div class="alt-tabs">
+              <div class="alt-tab active" data-alt="pink-galaxy" onclick="selectAlt(this.closest('.alt-path-selector'),'pink-galaxy',this)">🌸 Pink Galaxy</div>
+              <div class="alt-tab" data-alt="turquoise-ocean" onclick="selectAlt(this.closest('.alt-path-selector'),'turquoise-ocean',this)">🌊 Turquoise Ocean</div>
+              <div class="alt-tab" data-alt="emerald-forest" onclick="selectAlt(this.closest('.alt-path-selector'),'emerald-forest',this)">🌲 Emerald Forest</div>
+              <div class="alt-tab" data-alt="mint-breeze" onclick="selectAlt(this.closest('.alt-path-selector'),'mint-breeze',this)">🍃 Mint Breeze</div>
+              <div class="alt-tab" data-alt="custom" onclick="selectAlt(this.closest('.alt-path-selector'),'custom',this)">🎯 Custom Colors</div>
+            </div>
+            <div class="alt-content active" data-alt="pink-galaxy">
+              <p><strong>🌸 Pink Galaxy Theme (Default)</strong></p>
+              <div class="cmd"># Pink Galaxy color scheme
+cat > ~/.config/hypr/colors.conf << 'EOF'
+# Pink Galaxy Theme
+$accent = rgba(e91e63ff)     # Pink primary
+$accent_alt = rgba(2e7d32ff) # Green secondary  
+$bg = rgba(1a1a2eff)         # Dark background
+$surface = rgba(2a2a3eff)    # Surface color
+$text = rgba(e8e6f0ff)       # Text color
+$text_dim = rgba(a8a6b8ff)   # Dim text
+$border = rgba(e91e6355)     # Border with transparency
+
+general {
+    col.active_border = $accent $accent_alt 45deg
+    col.inactive_border = rgba(1b5e2088)
+    gaps_in = 5
+    gaps_out = 10
+    border_size = 2
+}
+
+decoration {
+    rounding = 12
+    blur {
+        enabled = true
+        size = 6
+        passes = 2
+        new_optimizations = true
+    }
+    drop_shadow = true
+    shadow_range = 8
+    shadow_render_power = 2
+    col.shadow = $accent
+    col.shadow_inactive = rgba(1a1a1a88)
+}
+EOF</div>
+              <p><strong>Colors:</strong> Hot pink (#e91e63) + Forest green (#2e7d32) + Dark navy background</p>
+            </div>
+            <div class="alt-content" data-alt="turquoise-ocean">
+              <p><strong>🌊 Turquoise Ocean Theme</strong></p>
+              <div class="cmd"># Turquoise Ocean color scheme
+cat > ~/.config/hypr/colors.conf << 'EOF'
+# Turquoise Ocean Theme
+$accent = rgba(00bcd4ff)     # Cyan/Turquoise
+$accent_alt = rgba(0097a7ff) # Dark turquoise
+$bg = rgba(0d1b2aff)         # Deep ocean blue
+$surface = rgba(1a2b3aff)    # Ocean surface
+$text = rgba(e0f7faff)       # Light cyan text
+$text_dim = rgba(b2ebf2ff)   # Cyan dim text
+$border = rgba(00bcd455)     # Turquoise border
+
+general {
+    col.active_border = $accent $accent_alt 45deg
+    col.inactive_border = rgba(26456088)
+    gaps_in = 5
+    gaps_out = 10
+    border_size = 2
+}
+
+decoration {
+    rounding = 16
+    blur {
+        enabled = true
+        size = 8
+        passes = 3
+        new_optimizations = true
+    }
+    drop_shadow = true
+    shadow_range = 12
+    shadow_render_power = 3
+    col.shadow = $accent
+    col.shadow_inactive = rgba(0d1b1a88)
+}
+EOF</div>
+              <p><strong>Colors:</strong> Turquoise (#00bcd4) + Dark teal (#0097a7) + Deep ocean blue background</p>
+            </div>
+            <div class="alt-content" data-alt="emerald-forest">
+              <p><strong>🌲 Emerald Forest Theme</strong></p>
+              <div class="cmd"># Emerald Forest color scheme
+cat > ~/.config/hypr/colors.conf << 'EOF'
+# Emerald Forest Theme
+$accent = rgba(00e676ff)     # Bright emerald
+$accent_alt = rgba(2e7d32ff) # Forest green
+$bg = rgba(1b2e1bff)         # Dark forest green
+$surface = rgba(2a3e2aff)    # Forest floor
+$text = rgba(e8f5e8ff)       # Light green text
+$text_dim = rgba(c8e6c9ff)   # Pale green text
+$border = rgba(00e67655)     # Emerald border
+
+general {
+    col.active_border = $accent $accent_alt 45deg
+    col.inactive_border = rgba(1b5e2088)
+    gaps_in = 6
+    gaps_out = 12
+    border_size = 2
+}
+
+decoration {
+    rounding = 10
+    blur {
+        enabled = true
+        size = 5
+        passes = 2
+        new_optimizations = true
+    }
+    drop_shadow = true
+    shadow_range = 10
+    shadow_render_power = 2
+    col.shadow = $accent
+    col.shadow_inactive = rgba(1b2e1b88)
+}
+EOF</div>
+              <p><strong>Colors:</strong> Bright emerald (#00e676) + Forest green (#2e7d32) + Dark green background</p>
+            </div>
+            <div class="alt-content" data-alt="mint-breeze">
+              <p><strong>🍃 Mint Breeze Theme</strong></p>
+              <div class="cmd"># Mint Breeze color scheme
+cat > ~/.config/hypr/colors.conf << 'EOF'
+# Mint Breeze Theme
+$accent = rgba(4db6acff)     # Mint/teal
+$accent_alt = rgba(80cbc4ff) # Light teal
+$bg = rgba(263238ff)         # Blue grey
+$surface = rgba(37474fff)    # Darker blue grey
+$text = rgba(e0f2f1ff)       # Mint white
+$text_dim = rgba(b2dfdaff)   # Soft mint
+$border = rgba(4db6ac55)     # Mint border
+
+general {
+    col.active_border = $accent $accent_alt 45deg
+    col.inactive_border = rgba(37474f88)
+    gaps_in = 4
+    gaps_out = 8
+    border_size = 2
+}
+
+decoration {
+    rounding = 8
+    blur {
+        enabled = true
+        size = 4
+        passes = 1
+        new_optimizations = true
+    }
+    drop_shadow = true
+    shadow_range = 6
+    shadow_render_power = 1
+    col.shadow = $accent
+    col.shadow_inactive = rgba(26323888)
+}
+EOF</div>
+              <p><strong>Colors:</strong> Mint teal (#4db6ac) + Light teal (#80cbc4) + Blue-grey background</p>
+            </div>
+            <div class="alt-content" data-alt="custom">
+              <p><strong>🎯 Create Your Custom Color Scheme</strong></p>
+              <div class="pill">
+                <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
+                  <span class="pill-icon">▶</span>
+                  <span class="pill-title">🎨 Color customization guide</span>
+                </div>
+                <div class="pill-content">
+                  <p><strong>How to choose your colors:</strong></p>
+                  <ol>
+                    <li><strong>Pick your main accent color</strong> (e.g., #ff5722 for orange)</li>
+                    <li><strong>Choose a complementary color</strong> (use color wheel or analogous colors)</li>
+                    <li><strong>Select background shades</strong> (dark versions of your colors)</li>
+                    <li><strong>Pick text colors</strong> (light colors that contrast well)</li>
+                  </ol>
+                  
+                  <p><strong>Color format conversion:</strong></p>
+                  <ul>
+                    <li><strong>Hex to RGBA:</strong> #e91e63 → rgba(e91e63ff)</li>
+                    <li><strong>With transparency:</strong> #e91e63 at 33% → rgba(e91e6355)</li>
+                    <li><strong>RGB to Hex:</strong> rgb(233,30,99) → #e91e63</li>
+                  </ul>
+                  
+                  <p><strong>Recommended color tools:</strong></p>
+                  <ul>
+                    <li><strong>Adobe Color:</strong> color.adobe.com (color wheel)</li>
+                    <li><strong>Coolors:</strong> coolors.co (palette generator)</li>
+                    <li><strong>Material Design:</strong> material.io/design/color</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="cmd-label">Template for your custom colors:</div>
+              <div class="cmd"># Custom color scheme template
+cat > ~/.config/hypr/colors.conf << 'EOF'
+# Your Custom Theme
+$accent = rgba(YOUR_COLOR_HEREff)      # Your main color
+$accent_alt = rgba(YOUR_ALT_COLOR_HEREff)  # Secondary color  
+$bg = rgba(YOUR_BG_COLOR_HEREff)       # Background
+$surface = rgba(YOUR_SURFACE_COLOR_HEREff) # Surface elements
+$text = rgba(YOUR_TEXT_COLOR_HEREff)   # Text color
+$text_dim = rgba(YOUR_DIM_TEXT_HEREff) # Dimmed text
+$border = rgba(YOUR_BORDER_COLOR_HERE55) # Border with transparency
+
+general {
+    col.active_border = $accent $accent_alt 45deg
+    col.inactive_border = rgba(YOUR_INACTIVE_BORDER_HERE88)
+    gaps_in = 5
+    gaps_out = 10
+    border_size = 2
+}
+
+decoration {
+    rounding = 12
+    blur {
+        enabled = true
+        size = 6
+        passes = 2
+        new_optimizations = true
+    }
+    drop_shadow = true
+    shadow_range = 8
+    shadow_render_power = 2
+    col.shadow = $accent
+    col.shadow_inactive = rgba(1a1a1a88)
+}
+EOF
+
+# Replace YOUR_COLOR_HERE with actual hex colors (without #)
+# Example: YOUR_COLOR_HERE → ff5722 for orange</div>
+              
+              <div class="cmd-label">Quick color examples to try:</div>
+              <div class="cmd"># Purple theme
+$accent = rgba(9c27b0ff)     # Purple
+$accent_alt = rgba(673ab7ff) # Deep purple
+
+# Orange theme  
+$accent = rgba(ff5722ff)     # Orange
+$accent_alt = rgba(ff9800ff) # Amber
+
+# Blue theme
+$accent = rgba(2196f3ff)     # Blue
+$accent_alt = rgba(03a9f4ff) # Light blue</div>
+            </div>
+          </div>
+
+          <div class="cmd-label">Apply your theme:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Include the colors in your Hyprland config
+echo "source = ~/.config/hypr/colors.conf" >> ~/.config/hypr/hyprland.conf
+
+# Reload Hyprland to see changes
+hyprctl reload</div>
+          
+          <div class="callout c-info">ℹ️ <strong>Pro tip:</strong> You can change themes anytime by creating a new colors.conf file and reloading Hyprland with <code>hyprctl reload</code></div>
+        </div>
+      </div>
+    </div>
+
     <div class="step" data-id="hypr-config" ">
       <div class="step-header">
         <div class="step-checkbox" onclick="toggleStep(this, event)"></div>
