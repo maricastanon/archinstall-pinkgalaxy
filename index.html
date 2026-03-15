@@ -1316,6 +1316,39 @@ sda           8:0    1 118.0G  0 disk          ← USB stick (Intenso)
       <div class="step-detail">
         <div class="step-detail-inner">
           <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>fdisk /dev/nvme0n1</div>
+          
+          <div class="pill" onclick="togglePill(this)">
+            <div class="pill-header">
+              <span class="pill-icon">▶</span>
+              <span class="pill-title">🔍 What is fdisk and why these exact commands?</span>
+            </div>
+            <div class="pill-content">
+              <p><strong>Fdisk</strong> is a command-line partition editor that modifies the partition table on your disk. We're creating a GPT (GUID Partition Table) which is the modern standard for UEFI systems.</p>
+              
+              <p><strong>Our partition layout:</strong></p>
+              <ul>
+                <li><strong>512MB EFI System Partition (FAT32):</strong> Stores bootloader files, UEFI firmware requirements</li>
+                <li><strong>8GB Swap:</strong> Virtual memory when RAM is full, hibernation support</li>
+                <li><strong>~468GB Root (/):</strong> Your entire Linux system and personal files</li>
+              </ul>
+              
+              <p><strong>Command explanation:</strong></p>
+              <ul>
+                <li><code>g</code> - Creates a new GPT partition table (replaces any existing partitions!)</li>
+                <li><code>n</code> - Creates a new partition</li>
+                <li><code>t</code> - Changes partition type/ID</li>
+                <li><code>w</code> - Writes changes to disk (point of no return)</li>
+              </ul>
+              
+              <p><strong>Why these sizes:</strong></p>
+              <ul>
+                <li><strong>512MB EFI:</strong> UEFI spec requires 100MB minimum, 512MB gives plenty of room for multiple kernels</li>
+                <li><strong>8GB Swap:</strong> Your laptop has 16GB RAM, so 8GB swap allows hibernation + some virtual memory</li>
+                <li><strong>Rest for Root:</strong> Single partition keeps things simple, btrfs subvolumes handle organization</li>
+              </ul>
+            </div>
+          </div>
+
           <p class="guide-p">Inside fdisk, type these commands one by one:</p>
           <div class="cmd"><span class="comment"># Create GPT table</span>
 g
@@ -1337,6 +1370,41 @@ n → 3 → default → default
 
 <span class="comment"># Write and exit</span>
 w</div>
+
+          <div class="pill" onclick="togglePill(this)">
+            <div class="pill-header">
+              <span class="pill-icon">▶</span>
+              <span class="pill-title">📝 Step-by-step fdisk walkthrough</span>
+            </div>
+            <div class="pill-content">
+              <p><strong>Detailed command sequence:</strong></p>
+              <ol>
+                <li><strong>Type 'g' and press Enter:</strong> Creates GPT table, you'll see "Created a new GPT disklabel"</li>
+                <li><strong>Type 'n' and press Enter:</strong> Start creating new partition</li>
+                <li><strong>Type '1' and press Enter:</strong> Partition number 1</li>
+                <li><strong>Press Enter (default):</strong> Start at first available sector</li>
+                <li><strong>Type '+512M' and press Enter:</strong> End 512MB later</li>
+                <li><strong>Type 't' and press Enter:</strong> Change partition type</li>
+                <li><strong>Type '1' and press Enter:</strong> EFI System (should show automatically)</li>
+                <li><strong>Repeat for swap:</strong> 'n' → '2' → Enter → '+8G' → 't' → '2' → '19'</li>
+                <li><strong>Repeat for root:</strong> 'n' → '3' → Enter → Enter (uses remaining space)</li>
+                <li><strong>Type 'w' and press Enter:</strong> Write changes and exit</li>
+              </ol>
+              
+              <p><strong>If you make a mistake:</strong></p>
+              <ul>
+                <li><strong>Type 'q':</strong> Quit without saving changes</li>
+                <li><strong>Type 'd':</strong> Delete a partition (then specify number)</li>
+                <li><strong>Type 'p':</strong> Print current partition table to review</li>
+              </ul>
+              
+              <p><strong>Expected output after 'w':</strong><br>
+              "The partition table has been altered!<br>
+              Calling ioctl() to re-read partition table.<br>
+              Syncing disks."</p>
+            </div>
+          </div>
+
           <div class="callout c-ok">✅ After <code>w</code>, fdisk exits and the partition table is written.</div>
         </div>
       </div>
