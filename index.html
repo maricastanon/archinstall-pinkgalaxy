@@ -173,7 +173,7 @@
 
     <div class="step done" data-id="bios-absolute" ">
       <div class="step-header">
-        <div class="step-checkbox checked"></div>
+        <div class="step-checkbox checked" onclick="toggleStep(this, event)"></div>
         <div class="step-body">
           <div class="step-title">Absolute® (Computrace) → Permanently Disabled</div>
           <div class="step-meta"><span class="badge b-pink">PRIVACY</span><span class="badge b-crit">IRREVERSIBLE</span></div>
@@ -183,7 +183,7 @@
 
     <div class="step done" data-id="bios-recovery" ">
       <div class="step-header">
-        <div class="step-checkbox checked"></div>
+        <div class="step-checkbox checked" onclick="toggleStep(this, event)"></div>
         <div class="step-body">
           <div class="step-title">BIOS Recovery from HDD → OFF · SupportAssist → OFF · BIOSConnect → OFF · Auto Recovery Threshold → Off</div>
           <div class="step-meta"><span class="badge b-pink">PRIVACY</span></div>
@@ -193,7 +193,7 @@
 
     <div class="step done" data-id="bios-vt" ">
       <div class="step-header">
-        <div class="step-checkbox checked"></div>
+        <div class="step-checkbox checked" onclick="toggleStep(this, event)"></div>
         <div class="step-body">
           <div class="step-title">VT (Intel Virtualization) → ON · VT-d → ON</div>
           <div class="step-meta"><span class="badge b-ok">KEPT</span></div>
@@ -203,7 +203,7 @@
 
     <div class="step done" data-id="bios-uefipath" ">
       <div class="step-header">
-        <div class="step-checkbox checked"></div>
+        <div class="step-checkbox checked" onclick="toggleStep(this, event)"></div>
         <div class="step-body">
           <div class="step-title">UEFI Boot Path Security → Always except internal HDD ✓</div>
           <div class="step-meta"><span class="badge b-ok">PERFECT</span></div>
