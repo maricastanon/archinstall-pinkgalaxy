@@ -65,7 +65,12 @@ function collapseAllPills() {
 }
 
 // ── CHAPTERS ──
-function showChapter(idx) {
+function showChapter(idx, isAuto = false) {
+  // Don't set user navigation flag if this is auto-navigation
+  if (!isAuto) {
+    isUserNavigation = true;
+  }
+  
   document.querySelectorAll('.chapter').forEach(c => c.classList.remove('active'));
   document.querySelectorAll('.chapter-item').forEach(c => c.classList.remove('active'));
   const ch = document.querySelectorAll('.chapter')[idx];
@@ -77,6 +82,11 @@ function showChapter(idx) {
   applyNotesToChapter();
   applyAltPaths();
   updateChapterProgress();
+  
+  // Reset user navigation flag after a short delay
+  setTimeout(() => {
+    isUserNavigation = false;
+  }, 100);
 }
 
 function applyStateToChapter() {
@@ -200,7 +210,7 @@ function updateChapterProgress() {
     setTimeout(() => {
       const totalChapters = document.querySelectorAll('.chapter').length;
       if (currentChapter < totalChapters - 1) {
-        showChapter(currentChapter + 1);
+        showChapter(currentChapter + 1, true); // Pass true for auto-navigation
       }
     }, 1500); // 1.5 second delay to show completion
   }
