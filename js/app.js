@@ -172,6 +172,10 @@ window.saveStepNote = function(ta) {
   if (saved) { saved.style.display = 'block'; setTimeout(() => saved.style.display = 'none', 1500); }
 };
 
+// Track which chapters have been auto-advanced to prevent repeated auto-navigation
+let autoAdvancedChapters = new Set();
+let isUserNavigation = false;
+
 // ── PROGRESS ──
 function updateChapterProgress() {
   const ch = document.querySelectorAll('.chapter')[currentChapter];
@@ -185,8 +189,14 @@ function updateChapterProgress() {
   if (fill) fill.style.width = pct + '%';
   if (pctEl) pctEl.textContent = pct + '%';
   
-  // Auto-navigate to next chapter when all checkboxes are completed
-  if (pct === 100 && total > 0) {
+  // Auto-navigate to next chapter only when:
+  // 1. Chapter is 100% complete
+  // 2. Has steps to complete
+  // 3. Haven't auto-advanced this chapter before
+  // 4. User is not manually navigating
+  // 5. Not the first chapter (display fix)
+  if (pct === 100 && total > 0 && !autoAdvancedChapters.has(currentChapter) && !isUserNavigation && currentChapter > 0) {
+    autoAdvancedChapters.add(currentChapter);
     setTimeout(() => {
       const totalChapters = document.querySelectorAll('.chapter').length;
       if (currentChapter < totalChapters - 1) {
