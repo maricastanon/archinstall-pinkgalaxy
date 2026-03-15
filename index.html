@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🌸 Pink Galaxy — Arch Linux Installation Guide</title>
 <link rel="stylesheet" href="css/style.css">
+<script type="module" src="js/aws-config.js"></script>
+<script type="module" src="js/cloud-sync.js"></script>
 </head>
 <body>
 
@@ -78,7 +80,11 @@
     <button class="tb-btn" id="btn-notebook">📖 Notebook</button>
     <button class="tb-btn" id="btn-focus">🎯 Focus</button>
     <button class="tb-btn" id="btn-save">💾 Save</button>
+    <button class="tb-btn" id="btn-sync" onclick="window.CloudSync?.forcSync()">🔄 Sync</button>
     <button class="tb-btn pink" id="btn-reset">↺ Reset</button>
+  </div>
+  <div class="sync-indicator">
+    <span id="sync-status">🔄 Initializing...</span>
   </div>
 </div>
 

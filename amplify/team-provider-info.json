@@ -1,0 +1,12 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pinkgalaxy-staging-authRole",
+      "UnauthRoleName": "amplify-pinkgalaxy-staging-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::ACCOUNT:role/amplify-pinkgalaxy-staging-authRole",
+      "UnauthRoleArn": "arn:aws:iam::ACCOUNT:role/amplify-pinkgalaxy-staging-unauthRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-pinkgalaxy-staging-deployment"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+type UserProgress @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  username: String!
+  completedSteps: [String!]!
+  currentChapter: String
+  progress: Float
+  notebookEntries: [NotebookEntry!]!
+  lastSyncDate: AWSDateTime!
+}
+
+type NotebookEntry {
+  id: String!
+  title: String!
+  content: String!
+  timestamp: AWSDateTime!
+  chapter: String
+}
+
+type Query {
+  getUserProgress(username: String!): UserProgress
+    @function(name: "getUserProgress-${env}")
+    @auth(rules: [{allow: private}])
+}
+
+type Mutation {
+  saveUserProgress(input: SaveProgressInput!): UserProgress
+    @function(name: "saveUserProgress-${env}")
+    @auth(rules: [{allow: private}])
+}
+
+input SaveProgressInput {
+  username: String!
+  completedSteps: [String!]!
+  currentChapter: String
+  progress: Float!
+  notebookEntries: [NotebookEntryInput!]!
+}
+
+input NotebookEntryInput {
+  id: String!
+  title: String!
+  content: String!
+  timestamp: AWSDateTime!
+  chapter: String
+}
