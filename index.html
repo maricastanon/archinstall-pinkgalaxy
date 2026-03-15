@@ -481,10 +481,15 @@
       <div class="step-detail">
         <div class="step-detail-inner">
           <div class="cmd-label">Install display tools:</div>
-          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S wlr-randr</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Hyprland has built-in monitor tools - no extra packages needed!
+# Just use hyprctl commands directly</div>
           
           <div class="cmd-label">Check your monitors:</div>
-          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>wlr-randr</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>hyprctl monitors
+
+# Shows your connected monitors with info like:
+# Monitor eDP-1 (ID 0): 1920x1200@60.00Hz at 0x0
+# Monitor HDMI-A-1 (ID 1): 1920x1080@60.00Hz at 1920x0</div>
           
           <div class="cmd-label">Set scaling for your monitors:</div>
           <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Dell 7420 laptop screen (recommended)
