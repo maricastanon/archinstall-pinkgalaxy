@@ -1483,12 +1483,67 @@ nvme0n1     476.9G disk
             </div>
             <div class="alt-content active" data-alt="btrfs">
               <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mkfs.btrfs /dev/nvme0n1p3</div>
+              
+              <div class="pill" onclick="togglePill(this)">
+                <div class="pill-header">
+                  <span class="pill-icon">▶</span>
+                  <span class="pill-title">🌳 Why btrfs and what are subvolumes?</span>
+                </div>
+                <div class="pill-content">
+                  <p><strong>Btrfs (B-tree File System)</strong> is a modern copy-on-write filesystem with advanced features:</p>
+                  
+                  <p><strong>Key advantages:</strong></p>
+                  <ul>
+                    <li><strong>Snapshots:</strong> Instant, space-efficient system backups before updates</li>
+                    <li><strong>Compression:</strong> Transparent zstd compression saves ~30% disk space</li>
+                    <li><strong>Subvolumes:</strong> Separate filesystem trees within one partition</li>
+                    <li><strong>Copy-on-Write:</strong> Data integrity protection, corruption detection</li>
+                    <li><strong>Built-in RAID:</strong> Can mirror or stripe data across multiple drives</li>
+                  </ul>
+                  
+                  <p><strong>Subvolume layout explanation:</strong></p>
+                  <ul>
+                    <li><strong>@ (root):</strong> Your main system (/, /usr, /bin, etc.)</li>
+                    <li><strong>@home:</strong> User data (/home/mari), separate from system</li>
+                    <li><strong>@snapshots:</strong> Storage for system snapshots (Timeshift integration)</li>
+                  </ul>
+                  
+                  <p><strong>Why separate subvolumes:</strong> You can snapshot the system (@) without including user files (@home), restore system without affecting personal data, and exclude snapshots from themselves (no recursion).</p>
+                </div>
+              </div>
+
               <div class="cmd-label">Mount and create subvolumes:</div>
               <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mount /dev/nvme0n1p3 /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@snapshots
 umount /mnt</div>
+
+              <div class="pill" onclick="togglePill(this)">
+                <div class="pill-header">
+                  <span class="pill-icon">▶</span>
+                  <span class="pill-title">⚙️ Btrfs mount options explained</span>
+                </div>
+                <div class="pill-content">
+                  <p><strong>Mount options breakdown:</strong></p>
+                  
+                  <ul>
+                    <li><strong>noatime:</strong> Doesn't update file access time → reduces write operations, improves SSD lifespan</li>
+                    <li><strong>compress=zstd:</strong> Real-time compression using Zstandard algorithm → ~30% space savings</li>
+                    <li><strong>subvol=@:</strong> Mount specific subvolume as root directory</li>
+                  </ul>
+                  
+                  <p><strong>Directory structure we're creating:</strong></p>
+                  <pre>/mnt                 ← @ subvolume (system root)
+├── home/            ← @home subvolume  
+├── .snapshots/      ← @snapshots subvolume
+└── boot/
+    └── efi/         ← EFI partition (FAT32)</pre>
+                  
+                  <p><strong>Why this layout:</strong> The system can be snapshotted independently from user files. Timeshift can create automatic snapshots before system updates, and you can restore just the system without losing personal data.</p>
+                </div>
+              </div>
+
               <div class="cmd-label">Mount with btrfs options:</div>
               <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mount -o noatime,compress=zstd,subvol=@ /dev/nvme0n1p3 /mnt
 mkdir -p /mnt/{home,.snapshots,boot/efi}
@@ -1564,6 +1619,34 @@ mount /dev/nvme0n1p1 /mnt/boot/efi</div>
       <div class="step-detail">
         <div class="step-detail-inner">
           <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>pacstrap -K /mnt base linux linux-firmware base-devel intel-ucode networkmanager vim sudo git</div>
+          
+          <div class="pill" onclick="togglePill(this)">
+            <div class="pill-header">
+              <span class="pill-icon">▶</span>
+              <span class="pill-title">📦 What is pacstrap and why these packages?</span>
+            </div>
+            <div class="pill-content">
+              <p><strong>Pacstrap</strong> is Arch's installer script that downloads and installs packages to a target directory (/mnt). It's essentially running pacman inside a chroot environment to install the base system.</p>
+              
+              <p><strong>The -K flag</strong> initializes an empty pacman keyring inside /mnt, which is required for package verification.</p>
+              
+              <p><strong>Why we need each package:</strong></p>
+              <ul>
+                <li><strong>base:</strong> Essential utilities (bash, coreutils, systemd, pacman, glibc) - the absolute minimum to boot</li>
+                <li><strong>linux:</strong> The kernel itself - without this, your system won't boot</li>
+                <li><strong>linux-firmware:</strong> Binary blobs for hardware (Wi-Fi chips, graphics, USB controllers)</li>
+                <li><strong>base-devel:</strong> Compilation tools (gcc, make, patch) - essential for AUR packages</li>
+                <li><strong>intel-ucode:</strong> CPU microcode updates for your i7-1255U - fixes CPU bugs and security issues</li>
+                <li><strong>networkmanager:</strong> Modern network management - handles Wi-Fi, Ethernet, VPN automatically</li>
+                <li><strong>vim:</strong> Text editor for system configuration (alternative to nano)</li>
+                <li><strong>sudo:</strong> Allows regular users to run privileged commands safely</li>
+                <li><strong>git:</strong> Version control - needed for AUR helpers and development</li>
+              </ul>
+              
+              <p><strong>What's NOT included:</strong> Desktop environment, web browser, audio system, graphics drivers - we'll add those later in the guide.</p>
+            </div>
+          </div>
+
           <p class="guide-p">Package explanation:</p>
           <div class="cmd"><span class="comment">base         — minimal Arch Linux system</span>
 <span class="comment">linux        — the Linux kernel</span>
@@ -1574,6 +1657,35 @@ mount /dev/nvme0n1p1 /mnt/boot/efi</div>
 <span class="comment">vim          — text editor</span>
 <span class="comment">sudo         — allow users to run as root</span>
 <span class="comment">git          — version control</span></div>
+
+          <div class="pill" onclick="togglePill(this)">
+            <div class="pill-header">
+              <span class="pill-icon">▶</span>
+              <span class="pill-title">⏳ What happens during pacstrap installation?</span>
+            </div>
+            <div class="pill-content">
+              <p><strong>Installation process:</strong></p>
+              <ol>
+                <li><strong>Keyring initialization:</strong> Sets up package signing verification</li>
+                <li><strong>Mirror ranking:</strong> Finds fastest download mirrors for your location</li>
+                <li><strong>Dependency resolution:</strong> Calculates all required packages (200+ total)</li>
+                <li><strong>Download:</strong> ~600MB of packages (5-15 minutes depending on connection)</li>
+                <li><strong>Extraction:</strong> Unpacks packages to /mnt directory structure</li>
+                <li><strong>Configuration:</strong> Sets up basic systemd services and file permissions</li>
+              </ol>
+              
+              <p><strong>Expected download size breakdown:</strong></p>
+              <ul>
+                <li><strong>linux:</strong> ~80MB (kernel + modules)</li>
+                <li><strong>linux-firmware:</strong> ~350MB (largest package - all hardware drivers)</li>
+                <li><strong>base-devel:</strong> ~120MB (gcc, binutils, make, etc.)</li>
+                <li><strong>Other packages:</strong> ~50MB (utilities, networkmanager, etc.)</li>
+              </ul>
+              
+              <p><strong>Progress indicators:</strong> You'll see download progress bars, extraction progress, and final "installation complete" message. The process is complete when you return to the command prompt.</p>
+            </div>
+          </div>
+
           <div class="callout c-info">ℹ️ This downloads ~600MB. Wait for it to complete. Progress bars will show.</div>
         </div>
       </div>
