@@ -1,20 +1,11 @@
 version: 1
-backend:
-  phases:
-    build:
-      commands:
-        - '# Execute Amplify CLI with the helper script'
-        - amplifyPush --simple
 frontend:
   phases:
-    preBuild:
-      commands:
-        - npm ci
     build:
       commands:
-        - npm run build
+        - echo "Static site - no build needed"
   artifacts:
-    baseDirectory: /
+    baseDirectory: .
     files:
       - '**/*'
   cache:
