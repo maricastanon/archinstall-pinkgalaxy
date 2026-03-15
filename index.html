@@ -7,6 +7,59 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<!-- ═══ SITE GATE ═══ -->
+<div id="site-gate">
+<div class="gate-bg"></div>
+<div class="gate-box">
+  <div class="gate-icon">🌸</div>
+  <div class="gate-title">Pink Galaxy</div>
+  <div class="gate-sub">Enter credentials to access the installation guide</div>
+  <form onsubmit="return checkGate(event)">
+    <input type="text" class="gate-input" id="gate-user" placeholder="Username" autocomplete="off">
+    <input type="password" class="gate-input" id="gate-pw" placeholder="Password" autocomplete="off" style="margin-top:12px">
+    <label class="gate-toggle-label">
+      <span class="gate-toggle-track"><input type="checkbox" id="gate-pw-toggle"><span class="gate-slider"></span></span>
+      <span class="gate-toggle-text">Show password</span>
+    </label>
+    <button type="submit" class="gate-btn">🚀 Enter Galaxy</button>
+  </form>
+  <div class="gate-err" id="gate-err">Wrong username or password</div>
+</div>
+</div>
+<script>
+(function(){
+  const HASH='2cc8a2948da6fa68d74fa59214e935da83168f2049050b0a731c7a7c9eabac9e';
+  const gate=document.getElementById('site-gate');
+  const userEl=document.getElementById('gate-user');
+  const pwEl=document.getElementById('gate-pw');
+
+  // Auto-login if already authenticated this session
+  if(sessionStorage.getItem('pinkgalaxy_auth')==='ok'){gate.style.display='none'}
+  // Clear any old auth
+  try{localStorage.removeItem('pinkgalaxy_creds');localStorage.removeItem('pinkgalaxy_auth')}catch(e){}
+
+  document.getElementById('gate-pw-toggle').addEventListener('change',function(ev){
+    pwEl.type=ev.target.checked?'text':'password';
+  });
+
+  window.checkGate=async function(e){
+    e.preventDefault();
+    const user=userEl.value.trim().toLowerCase();
+    const pw=pwEl.value;
+    const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(pw));
+    const h=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    if(user==='marexdynamic'&&h===HASH){
+      sessionStorage.setItem('pinkgalaxy_auth','ok');
+      gate.style.display='none';
+    }else{
+      const el=document.getElementById('gate-err');el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2000);
+    }
+    return false;
+  }
+})();
+</script>
+
 <div id="app">
 
 <!-- ══ TOPBAR ══ -->
