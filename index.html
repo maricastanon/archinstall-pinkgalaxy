@@ -1347,9 +1347,70 @@ Reboot Into Firmware Interface</div>
       </div>
       <div class="step-detail">
         <div class="step-detail-inner">
-          <p class="guide-p">Get fastest German mirrors for pacstrap speed:</p>
-          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>reflector --country Germany --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist</div>
-          <p class="guide-p">This picks the 5 fastest German HTTPS mirrors. Takes ~30 seconds.</p>
+          <div class="problem-solver">
+            <div class="problem">🚨 MIRRORLIST TIMEOUT? Here's what to do!</div>
+            <div class="solutions">
+              <div class="solution-path">
+                <span class="method">Method 1: Use fallback mirrors</span>
+                <span class="why">Why: Skip reflector, use basic working mirrors</span>
+              </div>
+              <div class="solution-path">
+                <span class="method">Method 2: Different countries</span>
+                <span class="why">Why: Germany might be overloaded</span>
+              </div>
+              <div class="solution-path">
+                <span class="method">Method 3: Manual mirror list</span>
+                <span class="why">Why: Skip automatic detection entirely</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cmd-label">Option 1: Fast German mirrors (recommended):</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>reflector --country Germany --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist</div>
+          
+          <div class="cmd-label">Option 2: If timeout, try multiple countries:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Cast wider net - Germany + neighbors
+reflector --country Germany,Netherlands,France --age 24 --protocol https --sort rate --save /etc/pacman.d/mirrorlist</div>
+          
+          <div class="cmd-label">Option 3: Emergency fallback (if reflector fails):</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Use default mirrors - they always work
+cp /etc/pacman.d/mirrorlist.pacnew /etc/pacman.d/mirrorlist
+
+# Or manually create working mirrorlist
+echo 'Server = https://mirror.netcologne.de/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+echo 'Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist</div>
+          
+          <div class="mindmap">
+            <div class="mindmap-center">🌍 Why Mirrors Timeout</div>
+            <div class="mindmap-branches">
+              <div class="branch">
+                <div class="branch-title">🌐 Network Issues</div>
+                <div class="branch-items">
+                  <span class="quick-fix">Check internet connection</span>
+                  <span class="quick-fix">Try different WiFi/ethernet</span>
+                  <span class="quick-fix">Wait 5 minutes and retry</span>
+                </div>
+              </div>
+              <div class="branch">
+                <div class="branch-title">🏗️ Server Overload</div>
+                <div class="branch-items">
+                  <span class="quick-fix">Peak hours in Germany</span>
+                  <span class="quick-fix">Choose different country</span>
+                  <span class="quick-fix">Use --age 24 instead of 12</span>
+                </div>
+              </div>
+              <div class="branch">
+                <div class="branch-title">🔧 Tool Issues</div>
+                <div class="branch-items">
+                  <span class="quick-fix">reflector might be outdated</span>
+                  <span class="quick-fix">Mirror database stale</span>
+                  <span class="quick-fix">Skip reflector entirely</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <p class="guide-p">🌍 <strong>Understanding mirrors:</strong> Mirrors are copies of Arch packages worldwide. Closer = faster downloads. reflector finds fastest ones automatically.</p>
         </div>
       </div>
     </div>
