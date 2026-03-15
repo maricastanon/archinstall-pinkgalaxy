@@ -151,7 +151,7 @@
   <h2 class="guide-h2">BIOS Changes Made</h2>
   <div class="steps-container">
 
-    <div class="step done" data-id="bios-ahci" onclick="toggleStep(this)">
+    <div class="step done" data-id="bios-ahci" ">
       <div class="step-header">
         <div class="step-checkbox checked critical"></div>
         <div class="step-body">
@@ -161,7 +161,7 @@
       </div>
     </div>
 
-    <div class="step done" data-id="bios-secboot" onclick="toggleStep(this)">
+    <div class="step done" data-id="bios-secboot" ">
       <div class="step-header">
         <div class="step-checkbox checked critical"></div>
         <div class="step-body">
@@ -171,7 +171,7 @@
       </div>
     </div>
 
-    <div class="step done" data-id="bios-absolute" onclick="toggleStep(this)">
+    <div class="step done" data-id="bios-absolute" ">
       <div class="step-header">
         <div class="step-checkbox checked"></div>
         <div class="step-body">
@@ -181,7 +181,7 @@
       </div>
     </div>
 
-    <div class="step done" data-id="bios-recovery" onclick="toggleStep(this)">
+    <div class="step done" data-id="bios-recovery" ">
       <div class="step-header">
         <div class="step-checkbox checked"></div>
         <div class="step-body">
@@ -191,7 +191,7 @@
       </div>
     </div>
 
-    <div class="step done" data-id="bios-vt" onclick="toggleStep(this)">
+    <div class="step done" data-id="bios-vt" ">
       <div class="step-header">
         <div class="step-checkbox checked"></div>
         <div class="step-body">
@@ -201,7 +201,7 @@
       </div>
     </div>
 
-    <div class="step done" data-id="bios-uefipath" onclick="toggleStep(this)">
+    <div class="step done" data-id="bios-uefipath" ">
       <div class="step-header">
         <div class="step-checkbox checked"></div>
         <div class="step-body">
@@ -434,9 +434,9 @@
 
   <div class="steps-container">
 
-    <div class="step" data-id="boot-insert" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-insert">
       <div class="step-header">
-        <div class="step-checkbox critical"></div>
+        <div class="step-checkbox critical" onclick="toggleStep(this, event)"></div>
         <div class="step-body">
           <div class="step-title">Insert the Intenso USB stick into the Dell</div>
           <div class="step-meta"><span class="badge b-crit">FIRST</span></div>
@@ -450,7 +450,7 @@
       </div>
     </div>
 
-    <div class="step" data-id="boot-power" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-power" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -468,7 +468,7 @@
       </div>
     </div>
 
-    <div class="step" data-id="boot-menu" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-menu" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -490,7 +490,7 @@ Reboot Into Firmware Interface</div>
       </div>
     </div>
 
-    <div class="step" data-id="boot-prompt" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-prompt" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -509,7 +509,7 @@ Reboot Into Firmware Interface</div>
       </div>
     </div>
 
-    <div class="step" data-id="boot-uefi-verify" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-uefi-verify" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -528,7 +528,7 @@ Reboot Into Firmware Interface</div>
       </div>
     </div>
 
-    <div class="step" data-id="boot-keyboard" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-keyboard" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -818,7 +818,7 @@ Reboot Into Firmware Interface</div>
 
   <div class="steps-container">
 
-    <div class="step" data-id="wifi-iwctl" onclick="toggleStep(this)">
+    <div class="step" data-id="wifi-iwctl" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -863,7 +863,7 @@ Reboot Into Firmware Interface</div>
       </div>
     </div>
 
-    <div class="step" data-id="wifi-list" onclick="toggleStep(this)">
+    <div class="step" data-id="wifi-list" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -886,7 +886,7 @@ Reboot Into Firmware Interface</div>
       </div>
     </div>
 
-    <div class="step" data-id="wifi-connect" onclick="toggleStep(this)">
+    <div class="step" data-id="wifi-connect" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -904,7 +904,7 @@ Reboot Into Firmware Interface</div>
       </div>
     </div>
 
-    <div class="step" data-id="wifi-exit" onclick="toggleStep(this)">
+    <div class="step" data-id="wifi-exit" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -924,7 +924,7 @@ Reboot Into Firmware Interface</div>
       </div>
     </div>
 
-    <div class="step" data-id="wifi-time" onclick="toggleStep(this)">
+    <div class="step" data-id="wifi-time" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -942,7 +942,7 @@ Reboot Into Firmware Interface</div>
       </div>
     </div>
 
-    <div class="step" data-id="wifi-mirrors" onclick="toggleStep(this)">
+    <div class="step" data-id="wifi-mirrors" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -1148,7 +1148,7 @@ systemctl start iwd
 
   <div class="steps-container">
 
-    <div class="step" data-id="disk-identify" onclick="toggleStep(this)">
+    <div class="step" data-id="disk-identify" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1170,7 +1170,7 @@ sda           8:0    1 118.0G  0 disk          ← USB stick (Intenso)
       </div>
     </div>
 
-    <div class="step" data-id="disk-wipe-choice" onclick="toggleStep(this)">
+    <div class="step" data-id="disk-wipe-choice" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -1204,7 +1204,7 @@ sda           8:0    1 118.0G  0 disk          ← USB stick (Intenso)
       </div>
     </div>
 
-    <div class="step" data-id="disk-wipe" onclick="toggleStep(this)">
+    <div class="step" data-id="disk-wipe" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1270,7 +1270,7 @@ sda           8:0    1 118.0G  0 disk          ← USB stick (Intenso)
 
   <div class="steps-container">
 
-    <div class="step" data-id="part-filesystem-choice" onclick="toggleStep(this)">
+    <div class="step" data-id="part-filesystem-choice" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -1304,7 +1304,7 @@ sda           8:0    1 118.0G  0 disk          ← USB stick (Intenso)
       </div>
     </div>
 
-    <div class="step" data-id="part-create" onclick="toggleStep(this)">
+    <div class="step" data-id="part-create" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1410,7 +1410,7 @@ w</div>
       </div>
     </div>
 
-    <div class="step" data-id="part-verify" onclick="toggleStep(this)">
+    <div class="step" data-id="part-verify" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -1431,7 +1431,7 @@ nvme0n1     476.9G disk
       </div>
     </div>
 
-    <div class="step" data-id="part-format-efi" onclick="toggleStep(this)">
+    <div class="step" data-id="part-format-efi" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1448,7 +1448,7 @@ nvme0n1     476.9G disk
       </div>
     </div>
 
-    <div class="step" data-id="part-format-swap" onclick="toggleStep(this)">
+    <div class="step" data-id="part-format-swap" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -1465,7 +1465,7 @@ nvme0n1     476.9G disk
       </div>
     </div>
 
-    <div class="step" data-id="part-format-root" onclick="toggleStep(this)">
+    <div class="step" data-id="part-format-root" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1563,7 +1563,7 @@ mount /dev/nvme0n1p1 /mnt/boot/efi</div>
       </div>
     </div>
 
-    <div class="step" data-id="part-verify-mount" onclick="toggleStep(this)">
+    <div class="step" data-id="part-verify-mount" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body">
@@ -1607,7 +1607,7 @@ mount /dev/nvme0n1p1 /mnt/boot/efi</div>
 
   <div class="steps-container">
 
-    <div class="step" data-id="pacstrap-run" onclick="toggleStep(this)">
+    <div class="step" data-id="pacstrap-run" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1691,7 +1691,7 @@ mount /dev/nvme0n1p1 /mnt/boot/efi</div>
       </div>
     </div>
 
-    <div class="step" data-id="pacstrap-fstab" onclick="toggleStep(this)">
+    <div class="step" data-id="pacstrap-fstab" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1710,7 +1710,7 @@ mount /dev/nvme0n1p1 /mnt/boot/efi</div>
       </div>
     </div>
 
-    <div class="step" data-id="pacstrap-chroot" onclick="toggleStep(this)">
+    <div class="step" data-id="pacstrap-chroot" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1756,7 +1756,7 @@ mount /dev/nvme0n1p1 /mnt/boot/efi</div>
 
   <div class="steps-container">
 
-    <div class="step" data-id="cfg-timezone" onclick="toggleStep(this)">
+    <div class="step" data-id="cfg-timezone" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Set timezone to Europe/Berlin</div></div>
@@ -1770,7 +1770,7 @@ hwclock --systohc</div>
       </div>
     </div>
 
-    <div class="step" data-id="cfg-locale" onclick="toggleStep(this)">
+    <div class="step" data-id="cfg-locale" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Configure locale (English + German)</div></div>
@@ -1790,7 +1790,7 @@ de_DE.UTF-8 UTF-8</div>
       </div>
     </div>
 
-    <div class="step" data-id="cfg-hostname" onclick="toggleStep(this)">
+    <div class="step" data-id="cfg-hostname" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Set hostname</div></div>
@@ -1809,7 +1809,7 @@ de_DE.UTF-8 UTF-8</div>
       </div>
     </div>
 
-    <div class="step" data-id="cfg-root-pass" onclick="toggleStep(this)">
+    <div class="step" data-id="cfg-root-pass" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1826,7 +1826,7 @@ de_DE.UTF-8 UTF-8</div>
       </div>
     </div>
 
-    <div class="step" data-id="cfg-user" onclick="toggleStep(this)">
+    <div class="step" data-id="cfg-user" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1847,7 +1847,7 @@ de_DE.UTF-8 UTF-8</div>
       </div>
     </div>
 
-    <div class="step" data-id="cfg-services" onclick="toggleStep(this)">
+    <div class="step" data-id="cfg-services" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Enable NetworkManager service</div></div>
@@ -1887,7 +1887,7 @@ de_DE.UTF-8 UTF-8</div>
 
   <div class="steps-container">
 
-    <div class="step" data-id="boot-install" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-install" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1904,7 +1904,7 @@ de_DE.UTF-8 UTF-8</div>
       </div>
     </div>
 
-    <div class="step" data-id="boot-loader-conf" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-loader-conf" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1925,7 +1925,7 @@ editor no</div>
       </div>
     </div>
 
-    <div class="step" data-id="boot-entry" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-entry" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -1966,7 +1966,7 @@ options root=UUID=<span class="placeholder">YOUR-UUID-HERE</span> rw</div>
       </div>
     </div>
 
-    <div class="step" data-id="boot-verify" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-verify" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Verify bootloader is correct</div></div>
@@ -1980,7 +1980,7 @@ options root=UUID=<span class="placeholder">YOUR-UUID-HERE</span> rw</div>
       </div>
     </div>
 
-    <div class="step" data-id="boot-mkinitcpio" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-mkinitcpio" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Generate initramfs</div></div>
@@ -1993,7 +1993,7 @@ options root=UUID=<span class="placeholder">YOUR-UUID-HERE</span> rw</div>
       </div>
     </div>
 
-    <div class="step" data-id="boot-exit" onclick="toggleStep(this)">
+    <div class="step" data-id="boot-exit" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -2039,14 +2039,14 @@ options root=UUID=<span class="placeholder">YOUR-UUID-HERE</span> rw</div>
 
   <div class="steps-container">
 
-    <div class="step" data-id="fb-bootmenu" onclick="toggleStep(this)">
+    <div class="step" data-id="fb-bootmenu" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">See systemd-boot menu → select "Arch Linux 🌸" → press Enter</div></div>
       </div>
     </div>
 
-    <div class="step" data-id="fb-login" onclick="toggleStep(this)">
+    <div class="step" data-id="fb-login" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body">
@@ -2066,7 +2066,7 @@ pinkgalaxy login: </span><span class="placeholder">mari</span>
       </div>
     </div>
 
-    <div class="step" data-id="fb-wifi" onclick="toggleStep(this)">
+    <div class="step" data-id="fb-wifi" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Connect to Wi-Fi with nmcli</div></div>
@@ -2080,7 +2080,7 @@ pinkgalaxy login: </span><span class="placeholder">mari</span>
       </div>
     </div>
 
-    <div class="step" data-id="fb-update" onclick="toggleStep(this)">
+    <div class="step" data-id="fb-update" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Full system update</div></div>
@@ -2093,7 +2093,7 @@ pinkgalaxy login: </span><span class="placeholder">mari</span>
       </div>
     </div>
 
-    <div class="step" data-id="fb-yay" onclick="toggleStep(this)">
+    <div class="step" data-id="fb-yay" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install yay (AUR helper)</div></div>
@@ -2136,7 +2136,7 @@ makepkg -si</div>
   </div>
   <div class="steps-container">
 
-    <div class="step" data-id="hypr-install" onclick="toggleStep(this)">
+    <div class="step" data-id="hypr-install" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body"><div class="step-title">Install Hyprland and core components</div><div class="step-meta"><span class="badge b-crit">INSTALL</span></div></div>
@@ -2151,7 +2151,7 @@ makepkg -si</div>
       </div>
     </div>
 
-    <div class="step" data-id="hypr-fonts" onclick="toggleStep(this)">
+    <div class="step" data-id="hypr-fonts" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install fonts</div></div>
@@ -2165,7 +2165,7 @@ makepkg -si</div>
       </div>
     </div>
 
-    <div class="step" data-id="hypr-config" onclick="toggleStep(this)">
+    <div class="step" data-id="hypr-config" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Create Hyprland config</div></div>
@@ -2207,7 +2207,7 @@ bind = $mod SHIFT, E, exit</div>
       </div>
     </div>
 
-    <div class="step" data-id="hypr-start" onclick="toggleStep(this)">
+    <div class="step" data-id="hypr-start" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Start Hyprland!</div></div>
@@ -2221,7 +2221,7 @@ bind = $mod SHIFT, E, exit</div>
       </div>
     </div>
 
-    <div class="step" data-id="hypr-autostart" onclick="toggleStep(this)">
+    <div class="step" data-id="hypr-autostart" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Auto-start Hyprland on login</div></div>
@@ -2257,7 +2257,7 @@ bind = $mod SHIFT, E, exit</div>
   </div>
   <div class="steps-container">
 
-    <div class="step" data-id="audio-pipewire" onclick="toggleStep(this)">
+    <div class="step" data-id="audio-pipewire" ">
       <div class="step-header">
         <div class="step-checkbox critical"></div>
         <div class="step-body"><div class="step-title">Install PipeWire (audio system)</div><div class="step-meta"><span class="badge b-crit">AUDIO</span></div></div>
@@ -2274,7 +2274,7 @@ speaker-test -c 2</div>
       </div>
     </div>
 
-    <div class="step" data-id="audio-bt" onclick="toggleStep(this)">
+    <div class="step" data-id="audio-bt" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Bluetooth (now your BT keyboard/mouse will work!)</div></div>
@@ -2320,7 +2320,7 @@ trust XX:XX:XX:XX:XX:XX</div>
   </div>
   <div class="steps-container">
 
-    <div class="step" data-id="shell-zsh" onclick="toggleStep(this)">
+    <div class="step" data-id="shell-zsh" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Zsh and set as default shell</div></div>
@@ -2334,7 +2334,7 @@ chsh -s /bin/zsh</div>
       </div>
     </div>
 
-    <div class="step" data-id="shell-plugins" onclick="toggleStep(this)">
+    <div class="step" data-id="shell-plugins" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Zsh plugins</div></div>
@@ -2350,7 +2350,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
       </div>
     </div>
 
-    <div class="step" data-id="shell-starship" onclick="toggleStep(this)">
+    <div class="step" data-id="shell-starship" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Starship prompt (Pink Galaxy theme)</div></div>
@@ -2375,7 +2375,7 @@ style = "bold #4caf50"</div>
       </div>
     </div>
 
-    <div class="step" data-id="shell-tools" onclick="toggleStep(this)">
+    <div class="step" data-id="shell-tools" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install essential CLI tools</div></div>
@@ -2416,7 +2416,7 @@ alias grep='rg'</div>
   </div>
   <div class="steps-container">
 
-    <div class="step" data-id="py-pyenv" onclick="toggleStep(this)">
+    <div class="step" data-id="py-pyenv" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install pyenv (Python version manager)</div></div>
@@ -2434,7 +2434,7 @@ pyenv global 3.12.0</div>
       </div>
     </div>
 
-    <div class="step" data-id="py-poetry" onclick="toggleStep(this)">
+    <div class="step" data-id="py-poetry" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Poetry (dependency management)</div></div>
@@ -2447,7 +2447,7 @@ pyenv global 3.12.0</div>
       </div>
     </div>
 
-    <div class="step" data-id="py-conda" onclick="toggleStep(this)">
+    <div class="step" data-id="py-conda" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Miniconda (data science environments)</div></div>
@@ -2465,7 +2465,7 @@ pip install polars pandas numpy jupyter ipykernel</div>
       </div>
     </div>
 
-    <div class="step" data-id="py-pipx" onclick="toggleStep(this)">
+    <div class="step" data-id="py-pipx" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install global Python tools with pipx</div></div>
@@ -2502,7 +2502,7 @@ pipx install black ruff mypy pytest httpie</div>
   </div>
   <div class="steps-container">
 
-    <div class="step" data-id="dev-git" onclick="toggleStep(this)">
+    <div class="step" data-id="dev-git" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Configure Git + SSH key for GitHub</div></div>
@@ -2520,7 +2520,7 @@ cat ~/.ssh/id_ed25519.pub</div>
       </div>
     </div>
 
-    <div class="step" data-id="dev-vscode" onclick="toggleStep(this)">
+    <div class="step" data-id="dev-vscode" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install VS Code</div></div>
@@ -2540,7 +2540,7 @@ code --install-extension esbenp.prettier-vscode</div>
       </div>
     </div>
 
-    <div class="step" data-id="dev-node" onclick="toggleStep(this)">
+    <div class="step" data-id="dev-node" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Node.js via nvm</div></div>
@@ -2557,7 +2557,7 @@ npm i -g pnpm typescript wrangler</div>
       </div>
     </div>
 
-    <div class="step" data-id="dev-docker" onclick="toggleStep(this)">
+    <div class="step" data-id="dev-docker" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Docker</div></div>
@@ -2597,7 +2597,7 @@ docker run hello-world</div>
   </div>
   <div class="steps-container">
 
-    <div class="step" data-id="cloud-aws" onclick="toggleStep(this)">
+    <div class="step" data-id="cloud-aws" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install AWS CLI v2</div></div>
@@ -2612,7 +2612,7 @@ aws configure</div>
       </div>
     </div>
 
-    <div class="step" data-id="cloud-cf" onclick="toggleStep(this)">
+    <div class="step" data-id="cloud-cf" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Wrangler (Cloudflare)</div></div>
@@ -2626,7 +2626,7 @@ wrangler login</div>
       </div>
     </div>
 
-    <div class="step" data-id="cloud-az" onclick="toggleStep(this)">
+    <div class="step" data-id="cloud-az" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Azure CLI</div></div>
@@ -2640,7 +2640,7 @@ az login</div>
       </div>
     </div>
 
-    <div class="step" data-id="cloud-tf" onclick="toggleStep(this)">
+    <div class="step" data-id="cloud-tf" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install Terraform</div></div>
@@ -2680,7 +2680,7 @@ terraform --version</div>
   <div class="callout c-warn">⚠️ These tools are for authorized penetration testing only. German §202a StGB applies.</div>
   <div class="steps-container">
 
-    <div class="step" data-id="sec-repo" onclick="toggleStep(this)">
+    <div class="step" data-id="sec-repo" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Add BlackArch repository</div></div>
@@ -2696,7 +2696,7 @@ sudo pacman -Syyu</div>
       </div>
     </div>
 
-    <div class="step" data-id="sec-tools" onclick="toggleStep(this)">
+    <div class="step" data-id="sec-tools" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Install core security tools</div></div>
@@ -2710,7 +2710,7 @@ sudo pacman -Syyu</div>
       </div>
     </div>
 
-    <div class="step" data-id="sec-vm" onclick="toggleStep(this)">
+    <div class="step" data-id="sec-vm" ">
       <div class="step-header">
         <div class="step-checkbox"></div>
         <div class="step-body"><div class="step-title">Set up QEMU/KVM for isolated lab VMs</div></div>

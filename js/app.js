@@ -122,7 +122,9 @@ function applyAltPaths() {
 }
 
 // ── STEP TOGGLE ──
-window.toggleStep = function(stepEl) {
+window.toggleStep = function(checkboxEl, event) {
+  if (event) event.stopPropagation(); // Prevent event bubbling
+  const stepEl = checkboxEl.closest('.step');
   const id = stepEl.dataset.id;
   if (!id) return;
   const chk = stepEl.querySelector('.step-checkbox');
@@ -181,6 +183,16 @@ function updateChapterProgress() {
   const pctEl = ch.querySelector('.cp-pct');
   if (fill) fill.style.width = pct + '%';
   if (pctEl) pctEl.textContent = pct + '%';
+  
+  // Auto-navigate to next chapter when all checkboxes are completed
+  if (pct === 100 && total > 0) {
+    setTimeout(() => {
+      const totalChapters = document.querySelectorAll('.chapter').length;
+      if (currentChapter < totalChapters - 1) {
+        showChapter(currentChapter + 1);
+      }
+    }, 1500); // 1.5 second delay to show completion
+  }
 }
 
 function updateGlobalProgress() {
