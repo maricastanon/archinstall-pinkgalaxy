@@ -539,7 +539,33 @@ Reboot Into Firmware Interface</div>
       </div>
       <div class="step-detail">
         <div class="step-detail-inner">
-          <p class="guide-p">The default is US layout. Your Dell keyboard is German — special characters will be wrong positions.</p>
+          <div class="pill" onclick="togglePill(this)">
+            <div class="pill-header">
+              <span class="pill-icon">▶</span>
+              <span class="pill-title">⌨️ Why keyboard layout matters and how to choose</span>
+            </div>
+            <div class="pill-content">
+              <p><strong>Keyboard layout</strong> determines which characters appear when you press keys. The live environment defaults to US English layout, which means:</p>
+              
+              <ul>
+                <li><strong>German keyboard users:</strong> Y and Z are swapped, @ symbol is different location</li>
+                <li><strong>Special characters:</strong> ü, ä, ö, ß won't work correctly</li>
+                <li><strong>Programming symbols:</strong> [ ] { } | \ may be in wrong positions</li>
+                <li><strong>Important for passwords:</strong> If your Wi-Fi password has special chars!</li>
+              </ul>
+              
+              <p><strong>When to set it:</strong></p>
+              <ul>
+                <li><strong>Required:</strong> If your Wi-Fi password contains special characters</li>
+                <li><strong>Recommended:</strong> If you're not familiar with US layout</li>
+                <li><strong>Optional:</strong> If you only use basic letters/numbers during install</li>
+              </ul>
+              
+              <p><strong>Note:</strong> This only affects the live environment. You'll set the permanent keyboard layout later in the system configuration.</p>
+            </div>
+          </div>
+
+          <p class="guide-p">The default is US layout. Choose your keyboard layout:</p>
 
           <div class="alt-path-selector" data-altid="keyboard-layout">
             <div class="alt-path-label">🔀 Choose your keyboard:</div>
@@ -547,15 +573,73 @@ Reboot Into Firmware Interface</div>
               <div class="alt-tab active" data-alt="de" onclick="selectAlt(this.closest('.alt-path-selector'),'de',this)">🇩🇪 German</div>
               <div class="alt-tab" data-alt="us" onclick="selectAlt(this.closest('.alt-path-selector'),'us',this)">🇺🇸 US English</div>
               <div class="alt-tab" data-alt="br" onclick="selectAlt(this.closest('.alt-path-selector'),'br',this)">🇧🇷 Brazilian</div>
+              <div class="alt-tab" data-alt="es" onclick="selectAlt(this.closest('.alt-path-selector'),'es',this)">🇪🇸 Spanish</div>
+              <div class="alt-tab" data-alt="fr" onclick="selectAlt(this.closest('.alt-path-selector'),'fr',this)">🇫🇷 French</div>
+              <div class="alt-tab" data-alt="it" onclick="selectAlt(this.closest('.alt-path-selector'),'it',this)">🇮🇹 Italian</div>
+              <div class="alt-tab" data-alt="pt" onclick="selectAlt(this.closest('.alt-path-selector'),'pt',this)">🇵🇹 Portuguese</div>
+              <div class="alt-tab" data-alt="ru" onclick="selectAlt(this.closest('.alt-path-selector'),'ru',this)">🇷🇺 Russian</div>
+              <div class="alt-tab" data-alt="uk" onclick="selectAlt(this.closest('.alt-path-selector'),'uk',this)">🇬🇧 UK English</div>
             </div>
             <div class="alt-content active" data-alt="de">
               <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys de-latin1</div>
+              <p><strong>German (QWERTZ):</strong> ü ä ö ß keys, Y/Z swapped from US layout</p>
             </div>
             <div class="alt-content" data-alt="us">
               <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys us</div>
+              <p><strong>US English (QWERTY):</strong> Default layout, most common for programming</p>
             </div>
             <div class="alt-content" data-alt="br">
               <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys br-abnt2</div>
+              <p><strong>Brazilian (ABNT2):</strong> Includes ç, ã, õ characters, different punctuation layout</p>
+            </div>
+            <div class="alt-content" data-alt="es">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys es</div>
+              <p><strong>Spanish:</strong> ñ character, inverted punctuation marks ¿ ¡</p>
+            </div>
+            <div class="alt-content" data-alt="fr">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys fr-latin1</div>
+              <p><strong>French (AZERTY):</strong> A/Q swapped, accented characters é è à ç</p>
+            </div>
+            <div class="alt-content" data-alt="it">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys it</div>
+              <p><strong>Italian:</strong> Accented vowels à è ì ò ù, different punctuation</p>
+            </div>
+            <div class="alt-content" data-alt="pt">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys pt-latin1</div>
+              <p><strong>Portuguese:</strong> ç character, accented vowels ã õ á é</p>
+            </div>
+            <div class="alt-content" data-alt="ru">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys ru</div>
+              <p><strong>Russian:</strong> Cyrillic alphabet, use Alt+Shift to toggle Latin/Cyrillic</p>
+            </div>
+            <div class="alt-content" data-alt="uk">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys uk</div>
+              <p><strong>UK English:</strong> £ symbol on Shift+3, different @ and " positions</p>
+            </div>
+          </div>
+
+          <div class="pill" onclick="togglePill(this)">
+            <div class="pill-header">
+              <span class="pill-icon">▶</span>
+              <span class="pill-title">🔧 Test your keyboard layout</span>
+            </div>
+            <div class="pill-content">
+              <p><strong>After setting keyboard layout, test important characters:</strong></p>
+              
+              <p><strong>Test these characters by typing them:</strong></p>
+              <ul>
+                <li><strong>Special chars:</strong> @ # $ % & * ( ) [ ] { } | \</li>
+                <li><strong>Punctuation:</strong> ; : ' " , . / ? ! ~</li>
+                <li><strong>Your language:</strong> ä ö ü ß (German), ñ (Spanish), ç (Portuguese), etc.</li>
+              </ul>
+              
+              <p><strong>Quick test command:</strong></p>
+              <div class="cmd">echo "Test: @#$%&*()[]{}|\\ äöüß ñç"</div>
+              
+              <p><strong>If characters look wrong:</strong> Try a different variant (e.g., de-latin1 vs de-latin1-nodeadkeys)</p>
+              
+              <p><strong>To see all available layouts:</strong></p>
+              <div class="cmd">localectl list-keymaps | grep ^de    # for German variants</div>
             </div>
           </div>
         </div>
