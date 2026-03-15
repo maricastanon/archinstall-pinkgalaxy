@@ -2420,9 +2420,78 @@ dmesg | grep -i "graphics\|display"</div>
             </div>
           </div>
 
+          <div class="pill">
+            <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
+              <span class="pill-icon">▶</span>
+              <span class="pill-title">🔍 Fix small text - Zoom and text scaling solutions</span>
+            </div>
+            <div class="pill-content">
+              <p><strong>Multiple ways to make text larger:</strong></p>
+              
+              <h4>1. System-wide scaling (Best for high DPI)</h4>
+              <div class="cmd"># Set global scale factor for your monitor
+wlr-randr --output eDP-1 --scale 1.25    # Laptop screen
+wlr-randr --output HDMI-A-1 --scale 1.15 # External 1440p
+wlr-randr --output HDMI-A-1 --scale 1.0  # External 1080p</div>
+              
+              <h4>2. Browser text zoom (Quick fix)</h4>
+              <ul>
+                <li><strong>Firefox/Chrome:</strong> Ctrl + Plus to zoom in, Ctrl + Minus to zoom out</li>
+                <li><strong>Default zoom:</strong> Ctrl + 0 (zero)</li>
+                <li><strong>Permanent:</strong> Set default zoom to 125% or 150% in browser settings</li>
+              </ul>
+              
+              <h4>3. Terminal text size</h4>
+              <div class="cmd"># Kitty terminal - edit config
+mkdir -p ~/.config/kitty
+echo "font_size 14" >> ~/.config/kitty/kitty.conf
+
+# Or temporary zoom in terminal
+Ctrl + Shift + Plus  # Increase font size
+Ctrl + Shift + Minus # Decrease font size</div>
+              
+              <h4>4. GTK application scaling</h4>
+              <div class="cmd"># Set GTK scaling factor
+export GDK_SCALE=1.25    # For 125% scaling
+export GDK_DPI_SCALE=1.25
+
+# Add to ~/.bashrc or ~/.zshrc for permanent
+echo "export GDK_SCALE=1.25" >> ~/.zshrc</div>
+              
+              <h4>5. Qt application scaling</h4>
+              <div class="cmd"># Set Qt scaling
+export QT_SCALE_FACTOR=1.25
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
+# Add to shell config
+echo "export QT_SCALE_FACTOR=1.25" >> ~/.zshrc</div>
+              
+              <h4>6. Wayland-specific fixes</h4>
+              <div class="cmd"># Some apps need Wayland-specific env vars
+export MOZ_ENABLE_WAYLAND=1      # Firefox
+export QT_QPA_PLATFORM=wayland  # Qt apps
+export ELECTRON_OZONE_PLATFORM_HINT=wayland  # Electron apps</div>
+              
+              <p><strong>Recommended scaling for common setups:</strong></p>
+              <ul>
+                <li><strong>Dell 7420 laptop screen only:</strong> --scale 1.25</li>
+                <li><strong>+ 24" 1080p monitor:</strong> laptop 1.25, external 1.0</li>
+                <li><strong>+ 27" 1440p monitor:</strong> laptop 1.25, external 1.15</li>
+                <li><strong>+ 4K monitor:</strong> laptop 1.25, external 2.0</li>
+              </ul>
+              
+              <p><strong>Quick test for optimal scaling:</strong> Text should be readable from normal viewing distance without squinting, but not so large that you lose screen real estate.</p>
+            </div>
+          </div>
+
           <div class="cmd-label">Test your configuration:</div>
           <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Open a terminal and test if bottom content is visible
 echo "If you can see this line, your display is properly configured! 🌸"</div>
+          
+          <div class="cmd-label">Quick text size test:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Open Firefox and test zoom levels
+firefox &
+# Then press Ctrl + Plus a few times to zoom in</div>
           
           <div class="callout c-info">ℹ️ <strong>Pro tip:</strong> Take note of your working configuration and add it to your Hyprland config in the next step for permanent setup.</div>
         </div>
