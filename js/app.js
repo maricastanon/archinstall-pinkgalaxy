@@ -44,7 +44,8 @@ function savePostits() { localStorage.setItem(POSTITS_KEY, JSON.stringify(postit
 function saveAltPaths() { localStorage.setItem(ALT_KEY, JSON.stringify(altPaths)); }
 
 // ═══ PILL EXPANDABLES ═══
-function togglePill(element) {
+function togglePill(element, event) {
+  if (event) event.stopPropagation(); // Prevent event bubbling
   element.classList.toggle('expanded');
   saveState();
 }

@@ -214,8 +214,8 @@
   </div>
   
   <!-- Comprehensive BIOS Guide Pills -->
-  <div class="pill" onclick="togglePill(this)">
-    <div class="pill-header">
+  <div class="pill">
+    <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
       <span class="pill-icon">▶</span>
       <span class="pill-title">🔍 Why These BIOS Settings Matter</span>
       <span class="pill-badge">Essential</span>
@@ -248,8 +248,8 @@
     </div>
   </div>
 
-  <div class="pill" onclick="togglePill(this)">
-    <div class="pill-header">
+  <div class="pill">
+    <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
       <span class="pill-icon">▶</span>
       <span class="pill-title">⚙️ Step-by-Step BIOS Navigation</span>
       <span class="pill-badge">Guide</span>
@@ -366,8 +366,8 @@
     </div>
   </div>
 
-  <div class="pill" onclick="togglePill(this)">
-    <div class="pill-header">
+  <div class="pill">
+    <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
       <span class="pill-icon">▶</span>
       <span class="pill-title">🚨 Troubleshooting Common Issues</span>
       <span class="pill-badge">Help</span>
@@ -539,8 +539,8 @@ Reboot Into Firmware Interface</div>
       </div>
       <div class="step-detail">
         <div class="step-detail-inner">
-          <div class="pill" onclick="togglePill(this)">
-            <div class="pill-header">
+          <div class="pill">
+            <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
               <span class="pill-icon">▶</span>
               <span class="pill-title">⌨️ Why keyboard layout matters and how to choose</span>
             </div>
@@ -618,8 +618,8 @@ Reboot Into Firmware Interface</div>
             </div>
           </div>
 
-          <div class="pill" onclick="togglePill(this)">
-            <div class="pill-header">
+          <div class="pill">
+            <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
               <span class="pill-icon">▶</span>
               <span class="pill-title">🔧 Test your keyboard layout</span>
             </div>
@@ -649,8 +649,8 @@ Reboot Into Firmware Interface</div>
   </div>
   
   <!-- Comprehensive USB Boot Guide Pills -->
-  <div class="pill" onclick="togglePill(this)">
-    <div class="pill-header">
+  <div class="pill">
+    <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
       <span class="pill-icon">▶</span>
       <span class="pill-title">💿 Creating the Arch USB Drive</span>
       <span class="pill-badge">Prerequisite</span>
@@ -781,8 +781,8 @@ Reboot Into Firmware Interface</div>
     </div>
   </div>
 
-  <div class="pill" onclick="togglePill(this)">
-    <div class="pill-header">
+  <div class="pill">
+    <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
       <span class="pill-icon">▶</span>
       <span class="pill-title">🔧 Boot Priority & UEFI vs BIOS</span>
       <span class="pill-badge">Important</span>
@@ -824,8 +824,8 @@ Reboot Into Firmware Interface</div>
     </div>
   </div>
 
-  <div class="pill" onclick="togglePill(this)">
-    <div class="pill-header">
+  <div class="pill">
+    <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
       <span class="pill-icon">▶</span>
       <span class="pill-title">🚨 Common Boot Problems & Solutions</span>
       <span class="pill-badge">Troubleshooting</span>
@@ -918,8 +918,8 @@ Reboot Into Firmware Interface</div>
           <div class="cmd"><span class="prompt">[iwd]# </span></div>
           <p class="guide-p">You are now inside the iwctl interactive prompt.</p>
           
-          <div class="pill" onclick="togglePill(this)">
-            <div class="pill-header">
+          <div class="pill">
+            <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
               <span class="pill-icon">▶</span>
               <span class="pill-title">🔍 What is iwctl?</span>
               <span class="pill-badge">Learn</span>
@@ -1047,8 +1047,8 @@ Reboot Into Firmware Interface</div>
   </div>
   
   <!-- Comprehensive Wi-Fi Guide Pills -->
-  <div class="pill" onclick="togglePill(this)">
-    <div class="pill-header">
+  <div class="pill">
+    <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
       <span class="pill-icon">▶</span>
       <span class="pill-title">🔍 Understanding Wi-Fi on Dell 7420</span>
       <span class="pill-badge">Hardware</span>
@@ -1084,8 +1084,8 @@ Reboot Into Firmware Interface</div>
     </div>
   </div>
 
-  <div class="pill" onclick="togglePill(this)">
-    <div class="pill-header">
+  <div class="pill">
+    <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
       <span class="pill-icon">▶</span>
       <span class="pill-title">📡 Alternative Connection Methods</span>
       <span class="pill-badge">Options</span>
@@ -1128,8 +1128,8 @@ dhclient wlan0</pre>
     </div>
   </div>
 
-  <div class="pill" onclick="togglePill(this)">
-    <div class="pill-header">
+  <div class="pill">
+    <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
       <span class="pill-icon">▶</span>
       <span class="pill-title">🚨 Wi-Fi Troubleshooting Guide</span>
       <span class="pill-badge">Fix Issues</span>
@@ -1401,8 +1401,8 @@ sda           8:0    1 118.0G  0 disk          ← USB stick (Intenso)
         <div class="step-detail-inner">
           <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>fdisk /dev/nvme0n1</div>
           
-          <div class="pill" onclick="togglePill(this)">
-            <div class="pill-header">
+          <div class="pill">
+            <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
               <span class="pill-icon">▶</span>
               <span class="pill-title">🔍 What is fdisk and why these exact commands?</span>
             </div>
@@ -1455,8 +1455,8 @@ n → 3 → default → default
 <span class="comment"># Write and exit</span>
 w</div>
 
-          <div class="pill" onclick="togglePill(this)">
-            <div class="pill-header">
+          <div class="pill">
+            <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
               <span class="pill-icon">▶</span>
               <span class="pill-title">📝 Step-by-step fdisk walkthrough</span>
             </div>
@@ -1568,8 +1568,8 @@ nvme0n1     476.9G disk
             <div class="alt-content active" data-alt="btrfs">
               <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mkfs.btrfs /dev/nvme0n1p3</div>
               
-              <div class="pill" onclick="togglePill(this)">
-                <div class="pill-header">
+              <div class="pill">
+                <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
                   <span class="pill-icon">▶</span>
                   <span class="pill-title">🌳 Why btrfs and what are subvolumes?</span>
                 </div>
@@ -1603,8 +1603,8 @@ btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@snapshots
 umount /mnt</div>
 
-              <div class="pill" onclick="togglePill(this)">
-                <div class="pill-header">
+              <div class="pill">
+                <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
                   <span class="pill-icon">▶</span>
                   <span class="pill-title">⚙️ Btrfs mount options explained</span>
                 </div>
@@ -1704,8 +1704,8 @@ mount /dev/nvme0n1p1 /mnt/boot/efi</div>
         <div class="step-detail-inner">
           <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>pacstrap -K /mnt base linux linux-firmware base-devel intel-ucode networkmanager vim sudo git</div>
           
-          <div class="pill" onclick="togglePill(this)">
-            <div class="pill-header">
+          <div class="pill">
+            <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
               <span class="pill-icon">▶</span>
               <span class="pill-title">📦 What is pacstrap and why these packages?</span>
             </div>
@@ -1742,8 +1742,8 @@ mount /dev/nvme0n1p1 /mnt/boot/efi</div>
 <span class="comment">sudo         — allow users to run as root</span>
 <span class="comment">git          — version control</span></div>
 
-          <div class="pill" onclick="togglePill(this)">
-            <div class="pill-header">
+          <div class="pill">
+            <div class="pill-header" onclick="togglePill(this.closest('.pill'), event)">
               <span class="pill-icon">▶</span>
               <span class="pill-title">⏳ What happens during pacstrap installation?</span>
             </div>
