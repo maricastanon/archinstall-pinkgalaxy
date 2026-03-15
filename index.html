@@ -153,7 +153,7 @@
 
     <div class="step done" data-id="bios-ahci" ">
       <div class="step-header">
-        <div class="step-checkbox checked critical"></div>
+        <div class="step-checkbox checked critical" onclick="toggleStep(this, event)"></div>
         <div class="step-body">
           <div class="step-title">Storage: RAID On → AHCI/NVMe</div>
           <div class="step-meta"><span class="badge b-crit">CRITICAL</span><span class="vchange"><span class="from">RAID On</span><span class="arrow">→</span><span class="to">AHCI/NVMe</span></span></div>
@@ -163,7 +163,7 @@
 
     <div class="step done" data-id="bios-secboot" ">
       <div class="step-header">
-        <div class="step-checkbox checked critical"></div>
+        <div class="step-checkbox checked critical" onclick="toggleStep(this, event)"></div>
         <div class="step-body">
           <div class="step-title">Secure Boot → Disabled</div>
           <div class="step-meta"><span class="badge b-crit">CRITICAL</span></div>
