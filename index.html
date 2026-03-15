@@ -833,6 +833,32 @@ Reboot Into Firmware Interface</div>
           <p class="guide-p">Your prompt changes to:</p>
           <div class="cmd"><span class="prompt">[iwd]# </span></div>
           <p class="guide-p">You are now inside the iwctl interactive prompt.</p>
+          
+          <div class="pill" onclick="togglePill(this)">
+            <div class="pill-header">
+              <span class="pill-icon">▶</span>
+              <span class="pill-title">🔍 What is iwctl?</span>
+              <span class="pill-badge">Learn</span>
+            </div>
+            <div class="pill-content">
+              <div class="pill-inner">
+                <p><strong>iwctl (iNet Wireless Control)</strong> is the command-line interface for <code>iwd</code> (iNet Wireless Daemon).</p>
+                <h4>Why not NetworkManager?</h4>
+                <ul>
+                  <li><strong>Arch Live doesn't include NetworkManager</strong> by default</li>
+                  <li><code>iwd</code> is lighter and faster</li>
+                  <li>Better for enterprise and complex network setups</li>
+                  <li>We'll install NetworkManager later in the final system</li>
+                </ul>
+                <h4>iwctl vs wpa_supplicant</h4>
+                <ul>
+                  <li><strong>iwctl:</strong> Modern, user-friendly, interactive</li>
+                  <li><strong>wpa_supplicant:</strong> Legacy, config-file based, manual</li>
+                  <li>Both work, but iwctl is recommended for beginners</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
