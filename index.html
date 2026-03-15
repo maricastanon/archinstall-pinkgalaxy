@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 Pink Galaxy — Arch Linux Installation Guide</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+<!-- ══ TOPBAR ══ -->
+<div id="topbar">
+  <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+  <div class="logo">🌸 Pink <span>Galaxy</span></div>
+  <div class="topbar-progress">
+    <div class="bar-label"><span>Overall Progress</span><span id="global-pct">0%</span></div>
+    <div class="bar-track"><div class="bar-fill" id="global-bar-fill" style="width:0%"></div></div>
+  </div>
+  <div class="topbar-stats">
+    <div class="tstat">Done: <b id="stat-done">0</b></div>
+    <div class="tstat">Left: <b id="stat-rem">0</b></div>
+  </div>
+  <div class="topbar-btns">
+    <button class="tb-btn" id="btn-notebook">📖 Notebook</button>
+    <button class="tb-btn" id="btn-focus">🎯 Focus</button>
+    <button class="tb-btn" id="btn-save">💾 Save</button>
+    <button class="tb-btn pink" id="btn-reset">↺ Reset</button>
+  </div>
+</div>
+
+<!-- ══ SIDEBAR ══ -->
+<div id="main-wrap">
+<div id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-title">📋 Chapters</div>
+  </div>
+  <div class="chapter-list" id="chapter-list">
+    <div class="sidebar-section-label">Pre-flight</div>
+    <div class="chapter-item"><span class="ch-icon">✅</span><span class="ch-title">BIOS Setup</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+
+    <div class="sidebar-section-label">Live Environment</div>
+    <div class="chapter-item"><span class="ch-icon">🚀</span><span class="ch-title">Boot from USB</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">📶</span><span class="ch-title">Connect Wi-Fi</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">💿</span><span class="ch-title">Prepare Disk</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">🗂️</span><span class="ch-title">Partition &amp; Format</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+
+    <div class="sidebar-section-label">Install</div>
+    <div class="chapter-item"><span class="ch-icon">📦</span><span class="ch-title">Pacstrap Base System</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">⚙️</span><span class="ch-title">System Config (chroot)</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">🥾</span><span class="ch-title">Bootloader</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">🎉</span><span class="ch-title">First Boot!</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+
+    <div class="sidebar-section-label">Desktop</div>
+    <div class="chapter-item"><span class="ch-icon">🖼️</span><span class="ch-title">Hyprland Desktop</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">🎵</span><span class="ch-title">Audio &amp; Bluetooth</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">🐚</span><span class="ch-title">Shell Setup</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+
+    <div class="sidebar-section-label">Dev Tools</div>
+    <div class="chapter-item"><span class="ch-icon">🐍</span><span class="ch-title">Python Environment</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">🛠️</span><span class="ch-title">Dev Tools &amp; Docker</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">☁️</span><span class="ch-title">Cloud Tools</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+    <div class="chapter-item"><span class="ch-icon">🔐</span><span class="ch-title">BlackArch Security</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+  </div>
+</div>
+
+<!-- ══ CONTENT ══ -->
+<div id="content">
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 0 — BIOS SETUP (DONE ✓)
+════════════════════════════════════════════ -->
+<div class="chapter active" data-chapter="0">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 0 · Pre-flight</div>
+    <div class="chapter-title">🖥️ <em>BIOS</em> Setup — Already Done!</div>
+    <div class="chapter-sub">Dell Inspiron 14 7420 2-in-1 · BIOS 1.30.1</div>
+    <div class="chapter-meta">
+      <span class="ch-badge ok">✅ Completed</span>
+      <span class="ch-badge time">⏱ Reference only</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Chapter Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="nextChapter()">Next: Boot from USB →</button>
+    </div>
+  </div>
+  <div class="callout c-ok">✅ All BIOS changes confirmed. This chapter is a quick reference summary.</div>
+  <h2 class="guide-h2">BIOS Changes Made</h2>
+  <div class="steps-container">
+
+    <div class="step done" data-id="bios-ahci" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox checked critical"></div>
+        <div class="step-body">
+          <div class="step-title">Storage: RAID On → AHCI/NVMe</div>
+          <div class="step-meta"><span class="badge b-crit">CRITICAL</span><span class="vchange"><span class="from">RAID On</span><span class="arrow">→</span><span class="to">AHCI/NVMe</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step done" data-id="bios-secboot" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox checked critical"></div>
+        <div class="step-body">
+          <div class="step-title">Secure Boot → Disabled</div>
+          <div class="step-meta"><span class="badge b-crit">CRITICAL</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step done" data-id="bios-absolute" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox checked"></div>
+        <div class="step-body">
+          <div class="step-title">Absolute® (Computrace) → Permanently Disabled</div>
+          <div class="step-meta"><span class="badge b-pink">PRIVACY</span><span class="badge b-crit">IRREVERSIBLE</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step done" data-id="bios-recovery" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox checked"></div>
+        <div class="step-body">
+          <div class="step-title">BIOS Recovery from HDD → OFF · SupportAssist → OFF · BIOSConnect → OFF · Auto Recovery Threshold → Off</div>
+          <div class="step-meta"><span class="badge b-pink">PRIVACY</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step done" data-id="bios-vt" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox checked"></div>
+        <div class="step-body">
+          <div class="step-title">VT (Intel Virtualization) → ON · VT-d → ON</div>
+          <div class="step-meta"><span class="badge b-ok">KEPT</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step done" data-id="bios-uefipath" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox checked"></div>
+        <div class="step-body">
+          <div class="step-title">UEFI Boot Path Security → Always except internal HDD ✓</div>
+          <div class="step-meta"><span class="badge b-ok">PERFECT</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="callout c-info">🔑 Key hardware facts: i7-1255U · 16GB RAM · NVMe SSD (nvme0n1) · Intel Iris Xe · Wi-Fi 6 (AX201) · BIOS Version 1.30.1</div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 1 — BOOT FROM USB
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="1">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 1 · Live Environment</div>
+    <div class="chapter-title">🚀 Boot from <em>USB</em></div>
+    <div class="chapter-sub">Get into the Arch live environment</div>
+    <div class="chapter-meta">
+      <span class="ch-badge time">⏱ ~5 min</span>
+      <span class="ch-badge diff">⚡ Easy</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← BIOS</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Wi-Fi →</button>
+    </div>
+  </div>
+  <div class="callout c-warn">⚠️ Bluetooth keyboard/mouse will NOT work here. Use the built-in Dell keyboard. USB wired keyboard also works.</div>
+  <div class="callout c-warn">⚠️ USB-C external monitor may or may not work in live env. Use built-in screen for installation.</div>
+
+  <div class="steps-container">
+
+    <div class="step" data-id="boot-insert" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Insert the Intenso USB stick into the Dell</div>
+          <div class="step-meta"><span class="badge b-crit">FIRST</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <p class="guide-p">Make sure it's the Intenso 128GB with the Arch ISO you wrote with Rufus in DD mode.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="boot-power" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">Power on the Dell → immediately press F12 repeatedly for boot menu</div>
+          <div class="step-meta"><span class="badge b-info">F12 = one-time boot</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <p class="guide-p">Press F12 as soon as you see the Dell logo. This gives a one-time boot menu without changing BIOS permanently.</p>
+          <p class="guide-p">You should see options like: Windows Boot Manager · UEFI: Intenso Flash Line · EFI PXE...</p>
+          <p class="guide-p">Select: <strong>UEFI: Intenso Flash Line</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="boot-menu" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Select "Arch Linux install medium (x86_64, UEFI)" — press Enter</div>
+          <div class="step-meta"><span class="badge b-crit">DO NOT SELECT "with speech"</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <p class="guide-p">The Arch boot menu appears with these options:</p>
+          <div class="cmd">Arch Linux install medium (x86_64, UEFI)  ← <span class="comment">select this one</span>
+Arch Linux install medium (x86_64, UEFI) with speech
+Memtest86+
+EFI Shell
+Reboot Into Firmware Interface</div>
+          <p class="guide-p">It auto-boots in 2 seconds if you don't press anything. Just press Enter on the first option.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="boot-prompt" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Wait for root prompt to appear</div>
+          <div class="step-meta"><span class="badge b-crit">MILESTONE</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <p class="guide-p">After loading, you'll see a bunch of boot messages scroll by, then land at:</p>
+          <div class="cmd"><span class="prompt">root@archiso ~ #</span> <span class="output">█</span></div>
+          <p class="guide-p">This is the Arch Linux live environment. You're in as root. Installation starts here.</p>
+          <div class="callout c-ok">✅ You are now in the Arch Linux live environment!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="boot-uefi-verify" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Verify you booted in UEFI mode (not BIOS legacy)</div>
+          <div class="step-meta"><span class="badge b-crit">VERIFY</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd-label">Run this:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>cat /sys/firmware/efi/fw_platform_size</div>
+          <div class="callout c-ok">✅ Expected output: <code>64</code> — means UEFI 64-bit. Perfect.</div>
+          <div class="callout c-danger">❌ If no file / error — you booted in legacy BIOS mode. Reboot and use F12 to select the UEFI option.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="boot-keyboard" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">Set keyboard layout (optional but helpful)</div>
+          <div class="step-meta"><span class="badge b-info">OPTIONAL</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <p class="guide-p">The default is US layout. Your Dell keyboard is German — special characters will be wrong positions.</p>
+
+          <div class="alt-path-selector" data-altid="keyboard-layout">
+            <div class="alt-path-label">🔀 Choose your keyboard:</div>
+            <div class="alt-tabs">
+              <div class="alt-tab active" data-alt="de" onclick="selectAlt(this.closest('.alt-path-selector'),'de',this)">🇩🇪 German</div>
+              <div class="alt-tab" data-alt="us" onclick="selectAlt(this.closest('.alt-path-selector'),'us',this)">🇺🇸 US English</div>
+              <div class="alt-tab" data-alt="br" onclick="selectAlt(this.closest('.alt-path-selector'),'br',this)">🇧🇷 Brazilian</div>
+            </div>
+            <div class="alt-content active" data-alt="de">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys de-latin1</div>
+            </div>
+            <div class="alt-content" data-alt="us">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys us</div>
+            </div>
+            <div class="alt-content" data-alt="br">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>loadkeys br-abnt2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 2 — CONNECT WI-FI
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="2">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 2 · Live Environment</div>
+    <div class="chapter-title">📶 Connect to <em>Wi-Fi</em></div>
+    <div class="chapter-sub">Intel AX201 Wi-Fi · FRITZBox Fon WLAN 7360</div>
+    <div class="chapter-meta">
+      <span class="ch-badge time">⏱ ~5 min</span>
+      <span class="ch-badge diff">⚡ Easy</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Boot USB</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Prepare Disk →</button>
+    </div>
+  </div>
+  <div class="callout c-info">ℹ️ Your Wi-Fi network: <strong>FRITZBox Fon WLAN 7360</strong>. Have the password ready.</div>
+
+  <div class="steps-container">
+
+    <div class="step" data-id="wifi-iwctl" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Start iwctl (interactive Wi-Fi tool)</div>
+          <div class="step-meta"><span class="badge b-crit">START HERE</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>iwctl</div>
+          <p class="guide-p">Your prompt changes to:</p>
+          <div class="cmd"><span class="prompt">[iwd]# </span></div>
+          <p class="guide-p">You are now inside the iwctl interactive prompt.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="wifi-list" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">List devices and scan for networks</div>
+          <div class="step-meta"><span class="badge b-info">INSIDE iwctl</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd-label">List Wi-Fi devices:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[iwd]# </span>device list</div>
+          <p class="guide-p">You should see <code>wlan0</code> listed. Then scan:</p>
+          <div class="cmd-label">Scan:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[iwd]# </span>station wlan0 scan</div>
+          <div class="cmd-label">List networks:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[iwd]# </span>station wlan0 get-networks</div>
+          <p class="guide-p">You should see your FRITZBox network in the list.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="wifi-connect" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Connect to FRITZBox Fon WLAN 7360</div>
+          <div class="step-meta"><span class="badge b-crit">CONNECT</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[iwd]# </span>station wlan0 connect "FRITZBox Fon WLAN 7360"</div>
+          <p class="guide-p">It will prompt: <code>Passphrase:</code> → type your Wi-Fi password.</p>
+          <div class="callout c-warn">⚠️ If the network name has special characters, wrap in quotes exactly as shown.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="wifi-exit" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">Exit iwctl and verify connection</div>
+          <div class="step-meta"><span class="badge b-info">VERIFY</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[iwd]# </span>exit</div>
+          <div class="cmd-label">Test internet:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>ping -c 3 archlinux.org</div>
+          <div class="callout c-ok">✅ If you see replies with time=XXms — you're online!</div>
+          <div class="callout c-danger">❌ No replies? Try: <code>ip link set wlan0 up</code> then reconnect.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="wifi-time" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">Sync system time (required for package signatures)</div>
+          <div class="step-meta"><span class="badge b-warn">IMPORTANT</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>timedatectl set-ntp true</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>timedatectl status</div>
+          <p class="guide-p">Should show: <code>System clock synchronized: yes</code></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="wifi-mirrors" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">Update mirror list (optional but speeds up download)</div>
+          <div class="step-meta"><span class="badge b-info">OPTIONAL</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <p class="guide-p">Get fastest German mirrors for pacstrap speed:</p>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>reflector --country Germany --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist</div>
+          <p class="guide-p">This picks the 5 fastest German HTTPS mirrors. Takes ~30 seconds.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 3 — PREPARE DISK (WIPE)
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="3">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 3 · Live Environment</div>
+    <div class="chapter-title">💿 Prepare <em>Disk</em> — Secure Wipe</div>
+    <div class="chapter-sub">Identify and securely wipe the NVMe SSD</div>
+    <div class="chapter-meta">
+      <span class="ch-badge time">⏱ ~20-60 min (wipe)</span>
+      <span class="ch-badge critical">🔥 DESTRUCTIVE</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Wi-Fi</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Partition →</button>
+    </div>
+  </div>
+  <div class="callout c-danger">🔥 ALL DATA ON THE SSD WILL BE PERMANENTLY DESTROYED. Windows is gone after this. No going back.</div>
+
+  <div class="steps-container">
+
+    <div class="step" data-id="disk-identify" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Identify disk names — confirm nvme0n1</div>
+          <div class="step-meta"><span class="badge b-crit">IDENTIFY FIRST</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>lsblk</div>
+          <p class="guide-p">Expected output:</p>
+          <div class="cmd"><span class="output">NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+nvme0n1     259:0    0 476.9G  0 disk          ← YOUR SSD (this is what we install on)
+sda           8:0    1 118.0G  0 disk          ← USB stick (Intenso)
+└─sda1        8:1    1   1.4G  0 part</span></div>
+          <div class="callout c-warn">⚠️ Double-check: nvme0n1 is the SSD. sda is the USB. Do NOT touch sda!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="disk-wipe-choice" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">Choose wipe method</div>
+          <div class="step-meta"><span class="badge b-alt">DECISION</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="decision">
+            <div class="decision-q">🤔 How thoroughly do you want to wipe?</div>
+            <div class="decision-opts">
+              <div class="decision-opt">
+                <span class="opt-key">A</span>
+                <div>
+                  <div class="opt-text"><strong>Secure cryptographic wipe</strong> (recommended)</div>
+                  <div class="opt-rec">✅ Best for privacy. Writes random data. Takes 20-60 min. Cannot recover old data.</div>
+                </div>
+              </div>
+              <div class="decision-opt">
+                <span class="opt-key">B</span>
+                <div>
+                  <div class="opt-text"><strong>Quick wipe</strong> (just zap partition table)</div>
+                  <div class="opt-rec">⚡ Takes seconds. Old data technically recoverable. Fine if privacy not a concern.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="disk-wipe" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Execute disk wipe</div>
+          <div class="step-meta"><span class="badge b-crit">POINT OF NO RETURN</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="alt-path-selector" data-altid="wipe-method">
+            <div class="alt-path-label">🔀 Wipe method:</div>
+            <div class="alt-tabs">
+              <div class="alt-tab active" data-alt="secure" onclick="selectAlt(this.closest('.alt-path-selector'),'secure',this)">🔐 Secure (recommended)</div>
+              <div class="alt-tab" data-alt="quick" onclick="selectAlt(this.closest('.alt-path-selector'),'quick',this)">⚡ Quick</div>
+            </div>
+            <div class="alt-content active" data-alt="secure">
+              <div class="callout c-warn">⚠️ This takes 20-60 minutes. Do not interrupt!</div>
+              <div class="cmd-label">Step 1 — open encrypted container over SSD:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>cryptsetup open --type plain -d /dev/urandom /dev/nvme0n1 to_be_wiped</div>
+              <div class="cmd-label">Step 2 — fill with zeros (through the encrypted container = writes random data to disk):</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>dd if=/dev/zero of=/dev/mapper/to_be_wiped bs=1M status=progress</div>
+              <div class="cmd-label">Step 3 — close the container when done:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>cryptsetup close to_be_wiped</div>
+              <div class="callout c-ok">✅ dd will show progress. When it says "No space left on device" — it's done. Normal!</div>
+            </div>
+            <div class="alt-content" data-alt="quick">
+              <div class="cmd-label">Just zap the partition table:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>wipefs -a /dev/nvme0n1</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>sgdisk -Z /dev/nvme0n1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 4 — PARTITION & FORMAT
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="4">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 4 · Live Environment</div>
+    <div class="chapter-title">🗂️ <em>Partition</em> &amp; Format</div>
+    <div class="chapter-sub">Create GPT partitions — EFI + Swap + Root</div>
+    <div class="chapter-meta">
+      <span class="ch-badge time">⏱ ~15 min</span>
+      <span class="ch-badge diff">⚡ Medium</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Wipe Disk</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Pacstrap →</button>
+    </div>
+  </div>
+
+  <div class="callout c-info">📐 Partition layout: <strong>512MB EFI</strong> + <strong>8GB Swap</strong> + <strong>~468GB Root</strong></div>
+
+  <div class="steps-container">
+
+    <div class="step" data-id="part-filesystem-choice" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">Choose root filesystem</div>
+          <div class="step-meta"><span class="badge b-alt">DECISION</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="decision">
+            <div class="decision-q">🤔 Which root filesystem?</div>
+            <div class="decision-opts">
+              <div class="decision-opt">
+                <span class="opt-key">A</span>
+                <div>
+                  <div class="opt-text"><strong>btrfs</strong> (recommended)</div>
+                  <div class="opt-rec">✅ Snapshots, compression, easy Timeshift backups. Modern choice.</div>
+                </div>
+              </div>
+              <div class="decision-opt">
+                <span class="opt-key">B</span>
+                <div>
+                  <div class="opt-text"><strong>ext4</strong> (simple and solid)</div>
+                  <div class="opt-rec">✅ Battle-tested, simple, no complexity. Fine choice too.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="part-create" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Create partitions with fdisk</div>
+          <div class="step-meta"><span class="badge b-crit">PARTITIONING</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>fdisk /dev/nvme0n1</div>
+          <p class="guide-p">Inside fdisk, type these commands one by one:</p>
+          <div class="cmd"><span class="comment"># Create GPT table</span>
+g
+
+<span class="comment"># New partition 1 — EFI</span>
+n → 1 → default → +512M
+
+<span class="comment"># Set type to EFI</span>
+t → 1 (EFI System)
+
+<span class="comment"># New partition 2 — Swap</span>
+n → 2 → default → +8G
+
+<span class="comment"># Set type to swap</span>
+t → 2 → 19 (Linux swap)
+
+<span class="comment"># New partition 3 — Root (rest of disk)</span>
+n → 3 → default → default
+
+<span class="comment"># Write and exit</span>
+w</div>
+          <div class="callout c-ok">✅ After <code>w</code>, fdisk exits and the partition table is written.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="part-verify" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">Verify partitions look correct</div>
+          <div class="step-meta"><span class="badge b-info">VERIFY</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>lsblk /dev/nvme0n1</div>
+          <div class="cmd"><span class="output">NAME          SIZE TYPE
+nvme0n1     476.9G disk
+├─nvme0n1p1   512M part  ← EFI
+├─nvme0n1p2     8G part  ← Swap
+└─nvme0n1p3 468.4G part  ← Root</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="part-format-efi" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Format EFI partition (FAT32)</div>
+          <div class="step-meta"><span class="badge b-crit">FORMAT</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mkfs.fat -F32 /dev/nvme0n1p1</div>
+          <div class="callout c-warn">⚠️ EFI MUST be FAT32. Do not use any other filesystem here.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="part-format-swap" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">Create and enable swap</div>
+          <div class="step-meta"><span class="badge b-info">SWAP</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mkswap /dev/nvme0n1p2</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>swapon /dev/nvme0n1p2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="part-format-root" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Format root partition</div>
+          <div class="step-meta"><span class="badge b-crit">FORMAT ROOT</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="alt-path-selector" data-altid="root-fs">
+            <div class="alt-tabs">
+              <div class="alt-tab active" data-alt="btrfs" onclick="selectAlt(this.closest('.alt-path-selector'),'btrfs',this)">btrfs (recommended)</div>
+              <div class="alt-tab" data-alt="ext4" onclick="selectAlt(this.closest('.alt-path-selector'),'ext4',this)">ext4</div>
+            </div>
+            <div class="alt-content active" data-alt="btrfs">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mkfs.btrfs /dev/nvme0n1p3</div>
+              <div class="cmd-label">Mount and create subvolumes:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mount /dev/nvme0n1p3 /mnt
+btrfs subvolume create /mnt/@
+btrfs subvolume create /mnt/@home
+btrfs subvolume create /mnt/@snapshots
+umount /mnt</div>
+              <div class="cmd-label">Mount with btrfs options:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mount -o noatime,compress=zstd,subvol=@ /dev/nvme0n1p3 /mnt
+mkdir -p /mnt/{home,.snapshots,boot/efi}
+mount -o noatime,compress=zstd,subvol=@home /dev/nvme0n1p3 /mnt/home
+mount -o noatime,compress=zstd,subvol=@snapshots /dev/nvme0n1p3 /mnt/.snapshots
+mount /dev/nvme0n1p1 /mnt/boot/efi</div>
+            </div>
+            <div class="alt-content" data-alt="ext4">
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mkfs.ext4 /dev/nvme0n1p3</div>
+              <div class="cmd-label">Mount:</div>
+              <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>mount /dev/nvme0n1p3 /mnt
+mkdir -p /mnt/boot/efi
+mount /dev/nvme0n1p1 /mnt/boot/efi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="part-verify-mount" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body">
+          <div class="step-title">Verify all mounts are correct</div>
+          <div class="step-meta"><span class="badge b-info">VERIFY</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>lsblk</div>
+          <p class="guide-p">You should see nvme0n1p3 mounted at /mnt and nvme0n1p1 at /mnt/boot/efi</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 5 — PACSTRAP
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="5">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 5 · Install</div>
+    <div class="chapter-title">📦 <em>Pacstrap</em> — Install Base System</div>
+    <div class="chapter-sub">Install Arch base onto the disk</div>
+    <div class="chapter-meta">
+      <span class="ch-badge time">⏱ ~10-20 min (download)</span>
+      <span class="ch-badge diff">⚡ Easy</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Partition</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Config →</button>
+    </div>
+  </div>
+
+  <div class="steps-container">
+
+    <div class="step" data-id="pacstrap-run" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Run pacstrap to install base system</div>
+          <div class="step-meta"><span class="badge b-crit">CORE INSTALL</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>pacstrap -K /mnt base linux linux-firmware base-devel intel-ucode networkmanager vim sudo git</div>
+          <p class="guide-p">Package explanation:</p>
+          <div class="cmd"><span class="comment">base         — minimal Arch Linux system</span>
+<span class="comment">linux        — the Linux kernel</span>
+<span class="comment">linux-firmware — firmware for hardware (Wi-Fi, etc.)</span>
+<span class="comment">base-devel   — build tools (gcc, make, etc.) needed for AUR</span>
+<span class="comment">intel-ucode  — Intel CPU microcode updates (your i7-1255U)</span>
+<span class="comment">networkmanager — Wi-Fi management after reboot</span>
+<span class="comment">vim          — text editor</span>
+<span class="comment">sudo         — allow users to run as root</span>
+<span class="comment">git          — version control</span></div>
+          <div class="callout c-info">ℹ️ This downloads ~600MB. Wait for it to complete. Progress bars will show.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="pacstrap-fstab" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Generate fstab (filesystem table)</div>
+          <div class="step-meta"><span class="badge b-crit">REQUIRED</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>genfstab -U /mnt >> /mnt/etc/fstab</div>
+          <div class="cmd-label">Verify it looks right:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>cat /mnt/etc/fstab</div>
+          <p class="guide-p">Should show entries for / (root), /boot/efi, swap, and (if btrfs) /home and /.snapshots</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="pacstrap-chroot" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Enter the new system (arch-chroot)</div>
+          <div class="step-meta"><span class="badge b-crit">CHROOT</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>arch-chroot /mnt</div>
+          <p class="guide-p">Your prompt changes to:</p>
+          <div class="cmd"><span class="prompt">[root@archiso /]# </span></div>
+          <div class="callout c-ok">✅ You are now inside your new Arch installation! Everything from here configures the real system.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 6 — SYSTEM CONFIG
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="6">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 6 · Install</div>
+    <div class="chapter-title">⚙️ System <em>Configuration</em></div>
+    <div class="chapter-sub">Timezone · Locale · Hostname · Users</div>
+    <div class="chapter-meta">
+      <span class="ch-badge time">⏱ ~15 min</span>
+      <span class="ch-badge diff">⚡ Medium</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Pacstrap</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Bootloader →</button>
+    </div>
+  </div>
+
+  <div class="steps-container">
+
+    <div class="step" data-id="cfg-timezone" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Set timezone to Europe/Berlin</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="cfg-locale" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Configure locale (English + German)</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd-label">Edit locale.gen:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>vim /etc/locale.gen</div>
+          <p class="guide-p">Uncomment these two lines (remove the # at the start):</p>
+          <div class="cmd">en_US.UTF-8 UTF-8
+de_DE.UTF-8 UTF-8</div>
+          <div class="cmd-label">In vim: use / to search, then x to delete the # character. :wq to save.</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>locale-gen</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>echo "LANG=en_US.UTF-8" > /etc/locale.conf</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="cfg-hostname" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Set hostname</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>echo "pinkgalaxy" > /etc/hostname</div>
+          <div class="cmd-label">Edit /etc/hosts:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>vim /etc/hosts</div>
+          <div class="cmd"><span class="comment"># Add these lines:</span>
+127.0.0.1   localhost
+::1         localhost
+127.0.1.1   pinkgalaxy.localdomain pinkgalaxy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="cfg-root-pass" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Set root password</div>
+          <div class="step-meta"><span class="badge b-crit">DO NOT SKIP</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>passwd</div>
+          <p class="guide-p">Type a strong password. You won't see it as you type. Confirm it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="cfg-user" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Create your user account</div>
+          <div class="step-meta"><span class="badge b-crit">CREATE USER</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>useradd -m -G wheel,audio,video,optical,storage -s /bin/bash mari</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>passwd mari</div>
+          <div class="cmd-label">Enable sudo for wheel group:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>EDITOR=vim visudo</div>
+          <p class="guide-p">Find this line and uncomment it (remove #):</p>
+          <div class="cmd">%wheel ALL=(ALL:ALL) ALL</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="cfg-services" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Enable NetworkManager service</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>systemctl enable NetworkManager</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 7 — BOOTLOADER
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="7">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 7 · Install</div>
+    <div class="chapter-title">🥾 <em>Bootloader</em> — systemd-boot</div>
+    <div class="chapter-sub">Install the bootloader that makes the system boot</div>
+    <div class="chapter-meta">
+      <span class="ch-badge time">⏱ ~10 min</span>
+      <span class="ch-badge critical">⚠️ Critical</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Config</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: First Boot! →</button>
+    </div>
+  </div>
+
+  <div class="steps-container">
+
+    <div class="step" data-id="boot-install" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Install systemd-boot</div>
+          <div class="step-meta"><span class="badge b-crit">BOOTLOADER</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>bootctl install</div>
+          <div class="callout c-ok">✅ This copies the bootloader to /boot/efi/EFI/systemd/</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="boot-loader-conf" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Create boot loader configuration</div>
+          <div class="step-meta"><span class="badge b-crit">CONFIG</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>vim /boot/efi/loader/loader.conf</div>
+          <div class="cmd"><span class="comment"># Add this content:</span>
+default arch.conf
+timeout 3
+console-mode max
+editor no</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="boot-entry" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Create Arch Linux boot entry</div>
+          <div class="step-meta"><span class="badge b-crit">BOOT ENTRY</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd-label">First get the UUID of your root partition:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>blkid /dev/nvme0n1p3</div>
+          <p class="guide-p">Note the UUID value, then create the entry:</p>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>vim /boot/efi/loader/entries/arch.conf</div>
+
+          <div class="alt-path-selector" data-altid="bootentry-fs">
+            <div class="alt-tabs">
+              <div class="alt-tab active" data-alt="btrfs" onclick="selectAlt(this.closest('.alt-path-selector'),'btrfs',this)">btrfs</div>
+              <div class="alt-tab" data-alt="ext4" onclick="selectAlt(this.closest('.alt-path-selector'),'ext4',this)">ext4</div>
+            </div>
+            <div class="alt-content active" data-alt="btrfs">
+              <div class="cmd">title   Arch Linux 🌸
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux.img
+options root=UUID=<span class="placeholder">YOUR-UUID-HERE</span> rootflags=subvol=@ rw</div>
+            </div>
+            <div class="alt-content" data-alt="ext4">
+              <div class="cmd">title   Arch Linux 🌸
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux.img
+options root=UUID=<span class="placeholder">YOUR-UUID-HERE</span> rw</div>
+            </div>
+          </div>
+          <div class="callout c-warn">⚠️ Replace YOUR-UUID-HERE with the actual UUID from blkid. Keep the quotes off — just the UUID string.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="boot-verify" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Verify bootloader is correct</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>bootctl list</div>
+          <p class="guide-p">Should show: <code>Arch Linux 🌸</code> as a boot option</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="boot-mkinitcpio" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Generate initramfs</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>mkinitcpio -P</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="boot-exit" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Exit chroot, unmount, reboot!</div>
+          <div class="step-meta"><span class="badge b-crit">REBOOT TIME</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">[root@archiso /]# </span>exit</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>umount -R /mnt</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button><span class="prompt">root@archiso ~ # </span>reboot</div>
+          <div class="callout c-warn">⚠️ Remove the USB stick when the screen goes black during reboot!</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 8 — FIRST BOOT
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="8">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 8 · First Boot</div>
+    <div class="chapter-title">🎉 <em>First Boot!</em></div>
+    <div class="chapter-sub">Your Arch Linux system boots for the first time</div>
+    <div class="chapter-meta">
+      <span class="ch-badge time">⏱ ~10 min</span>
+      <span class="ch-badge ok">🌸 Exciting!</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Bootloader</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Hyprland →</button>
+    </div>
+  </div>
+
+  <div class="steps-container">
+
+    <div class="step" data-id="fb-bootmenu" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">See systemd-boot menu → select "Arch Linux 🌸" → press Enter</div></div>
+      </div>
+    </div>
+
+    <div class="step" data-id="fb-login" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body">
+          <div class="step-title">Login as your user (mari)</div>
+          <div class="step-meta"><span class="badge b-crit">LOGIN</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><span class="output">Arch Linux (tty1)
+pinkgalaxy login: </span><span class="placeholder">mari</span>
+<span class="output">Password: </span><span class="placeholder">your password</span></div>
+          <p class="guide-p">You should land at a bash prompt: <code>[mari@pinkgalaxy ~]$</code></p>
+          <div class="callout c-ok">🌸 Congratulations! Arch Linux is installed and running!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="fb-wifi" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Connect to Wi-Fi with nmcli</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>nmcli device wifi connect "FRITZBox Fon WLAN 7360" password "<span class="placeholder">your-wifi-password</span>"</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>ping -c 3 archlinux.org</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="fb-update" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Full system update</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -Syu</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="fb-yay" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install yay (AUR helper)</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>cd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si</div>
+          <div class="callout c-ok">✅ After this, use <code>yay -S package</code> to install AUR packages alongside <code>sudo pacman -S package</code></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 9 — HYPRLAND
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="9">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 9 · Desktop</div>
+    <div class="chapter-title">🖼️ <em>Hyprland</em> Desktop</div>
+    <div class="chapter-sub">Wayland compositor — tiling window manager</div>
+    <div class="chapter-meta">
+      <span class="ch-badge time">⏱ ~30 min</span>
+      <span class="ch-badge diff">⚡ Medium</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← First Boot</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Audio →</button>
+    </div>
+  </div>
+  <div class="steps-container">
+
+    <div class="step" data-id="hypr-install" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body"><div class="step-title">Install Hyprland and core components</div><div class="step-meta"><span class="badge b-crit">INSTALL</span></div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S hyprland xdg-desktop-portal-hyprland waybar wofi mako swaybg swaylock kitty thunar grim slurp wl-clipboard</div>
+          <div class="cmd-label">From AUR:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>yay -S swaylock-effects-git hyprpaper</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="hypr-fonts" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install fonts</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S ttf-jetbrains-mono-nerd ttf-fira-code noto-fonts noto-fonts-emoji noto-fonts-cjk</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>yay -S ttf-font-awesome</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="hypr-config" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Create Hyprland config</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>mkdir -p ~/.config/hypr
+cp /usr/share/hyprland/hyprland.conf ~/.config/hypr/hyprland.conf</div>
+          <p class="guide-p">Edit for Dell 7420 specifics (monitor, touchpad, etc.):</p>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>vim ~/.config/hypr/hyprland.conf</div>
+          <div class="cmd"><span class="comment"># Monitor (built-in 1920x1200):</span>
+monitor=eDP-1,1920x1200@60,0x0,1
+
+<span class="comment"># Pink Galaxy colors:</span>
+general {
+    col.active_border = rgba(e91e63ff) rgba(2e7d32ff) 45deg
+    col.inactive_border = rgba(1b5e2088)
+    gaps_in = 5
+    gaps_out = 10
+    border_size = 2
+}
+
+<span class="comment"># Touchpad:</span>
+input {
+    touchpad {
+        natural_scroll = true
+        tap-to-click = true
+    }
+}
+
+<span class="comment"># Key bindings:</span>
+$mod = SUPER
+bind = $mod, Return, exec, kitty
+bind = $mod, Q, killactive
+bind = $mod, D, exec, wofi --show drun
+bind = $mod SHIFT, E, exit</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="hypr-start" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Start Hyprland!</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>Hyprland</div>
+          <div class="callout c-ok">🌸 Hyprland should start! Press Super+Enter for a terminal, Super+D for launcher.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="hypr-autostart" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Auto-start Hyprland on login</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>echo 'if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then exec Hyprland; fi' >> ~/.bash_profile</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 10 — AUDIO & BLUETOOTH
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="10">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 10 · Desktop</div>
+    <div class="chapter-title">🎵 Audio &amp; <em>Bluetooth</em></div>
+    <div class="chapter-sub">PipeWire audio · Bluetooth stack</div>
+    <div class="chapter-meta"><span class="ch-badge time">⏱ ~15 min</span></div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Hyprland</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Shell →</button>
+    </div>
+  </div>
+  <div class="steps-container">
+
+    <div class="step" data-id="audio-pipewire" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox critical"></div>
+        <div class="step-body"><div class="step-title">Install PipeWire (audio system)</div><div class="step-meta"><span class="badge b-crit">AUDIO</span></div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber pavucontrol</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>systemctl --user enable --now pipewire pipewire-pulse wireplumber</div>
+          <div class="cmd-label">Test audio:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>pactl list sinks
+speaker-test -c 2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="audio-bt" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Bluetooth (now your BT keyboard/mouse will work!)</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S bluez bluez-utils blueman</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo systemctl enable --now bluetooth</div>
+          <div class="cmd-label">Pair devices:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>bluetoothctl
+power on
+scan on
+<span class="comment"># Wait for your device to appear, note MAC address</span>
+pair XX:XX:XX:XX:XX:XX
+connect XX:XX:XX:XX:XX:XX
+trust XX:XX:XX:XX:XX:XX</div>
+          <div class="callout c-ok">✅ After this step your Bluetooth keyboard and mouse will work! 🌸</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 11 — SHELL SETUP
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="11">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 11 · Desktop</div>
+    <div class="chapter-title">🐚 <em>Shell</em> Setup — Zsh + Starship</div>
+    <div class="chapter-sub">Beautiful terminal with Pink Galaxy theme</div>
+    <div class="chapter-meta"><span class="ch-badge time">⏱ ~20 min</span></div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Audio</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Python →</button>
+    </div>
+  </div>
+  <div class="steps-container">
+
+    <div class="step" data-id="shell-zsh" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Zsh and set as default shell</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S zsh zsh-completions
+chsh -s /bin/zsh</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="shell-plugins" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Zsh plugins</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S zsh-autosuggestions zsh-syntax-highlighting</div>
+          <div class="cmd-label">Add to ~/.zshrc:</div>
+          <div class="cmd">source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="shell-starship" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Starship prompt (Pink Galaxy theme)</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S starship</div>
+          <div class="cmd-label">Add to end of ~/.zshrc:</div>
+          <div class="cmd">eval "$(starship init zsh)"</div>
+          <div class="cmd-label">Create ~/.config/starship.toml with Pink Galaxy colors:</div>
+          <div class="cmd">[character]
+success_symbol = "[🌸](bold #e91e63)"
+error_symbol = "[✗](bold red)"
+
+[git_branch]
+style = "bold #e91e63"
+
+[directory]
+style = "bold #4caf50"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="shell-tools" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install essential CLI tools</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S bat eza fd ripgrep fzf htop btop tmux jq curl wget tree unzip zip</div>
+          <div class="cmd-label">Add aliases to ~/.zshrc:</div>
+          <div class="cmd">alias ls='eza --icons'
+alias ll='eza -la --icons'
+alias cat='bat'
+alias grep='rg'</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 12 — PYTHON
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="12">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 12 · Dev Tools</div>
+    <div class="chapter-title">🐍 <em>Python</em> Environment</div>
+    <div class="chapter-sub">pyenv · Poetry · Conda · Data Science stack</div>
+    <div class="chapter-meta"><span class="ch-badge time">⏱ ~30 min</span></div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Shell</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Dev Tools →</button>
+    </div>
+  </div>
+  <div class="steps-container">
+
+    <div class="step" data-id="py-pyenv" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install pyenv (Python version manager)</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>yay -S pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>pyenv install 3.12.0
+pyenv global 3.12.0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="py-poetry" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Poetry (dependency management)</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>curl -sSL https://install.python-poetry.org | python3 -</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="py-conda" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Miniconda (data science environments)</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>yay -S miniconda3
+conda init zsh
+<span class="comment"># Restart shell, then:</span>
+conda create -n ds python=3.12
+conda activate ds
+pip install polars pandas numpy jupyter ipykernel</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="py-pipx" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install global Python tools with pipx</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S python-pipx
+pipx install black ruff mypy pytest httpie</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 13 — DEV TOOLS & DOCKER
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="13">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 13 · Dev Tools</div>
+    <div class="chapter-title">🛠️ Dev Tools &amp; <em>Docker</em></div>
+    <div class="chapter-sub">VS Code · Node.js · Docker · Git</div>
+    <div class="chapter-meta"><span class="ch-badge time">⏱ ~20 min</span></div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Python</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Cloud →</button>
+    </div>
+  </div>
+  <div class="steps-container">
+
+    <div class="step" data-id="dev-git" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Configure Git + SSH key for GitHub</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>git config --global user.name "Mari"
+git config --global user.email "your@email.com"
+git config --global init.defaultBranch main
+ssh-keygen -t ed25519 -C "your@email.com"
+cat ~/.ssh/id_ed25519.pub</div>
+          <p class="guide-p">Copy the output and add it to GitHub → Settings → SSH Keys</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="dev-vscode" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install VS Code</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>yay -S visual-studio-code-bin</div>
+          <div class="cmd-label">Essential extensions:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>code --install-extension ms-python.python
+code --install-extension ms-python.black-formatter
+code --install-extension charliermarsh.ruff
+code --install-extension eamodio.gitlens
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension esbenp.prettier-vscode</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="dev-node" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Node.js via nvm</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>yay -S nvm
+echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.zshrc
+source ~/.zshrc
+nvm install --lts
+npm i -g pnpm typescript wrangler</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="dev-docker" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Docker</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S docker docker-compose
+sudo systemctl enable --now docker
+sudo usermod -aG docker mari
+<span class="comment"># Logout and login again, then test:</span>
+docker run hello-world</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 14 — CLOUD TOOLS
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="14">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 14 · Dev Tools</div>
+    <div class="chapter-title">☁️ <em>Cloud</em> Tools</div>
+    <div class="chapter-sub">AWS · Cloudflare · Azure · Terraform</div>
+    <div class="chapter-meta"><span class="ch-badge time">⏱ ~20 min</span></div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Dev Tools</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: BlackArch →</button>
+    </div>
+  </div>
+  <div class="steps-container">
+
+    <div class="step" data-id="cloud-aws" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install AWS CLI v2</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>yay -S aws-cli-v2-bin
+aws configure</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>npm i -g aws-cdk</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="cloud-cf" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Wrangler (Cloudflare)</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>npm i -g wrangler
+wrangler login</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="cloud-az" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Azure CLI</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>yay -S azure-cli
+az login</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="cloud-tf" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install Terraform</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>yay -S terraform
+terraform --version</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 15 — BLACKARCH
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="15">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 15 · Security</div>
+    <div class="chapter-title">🔐 <em>BlackArch</em> Security Arsenal</div>
+    <div class="chapter-sub">Ethical hacking tools · German law applies</div>
+    <div class="chapter-meta">
+      <span class="ch-badge time">⏱ ~20 min</span>
+      <span class="ch-badge critical">⚠️ Ethical use only</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← Cloud Tools</button>
+    </div>
+  </div>
+  <div class="callout c-warn">⚠️ These tools are for authorized penetration testing only. German §202a StGB applies.</div>
+  <div class="steps-container">
+
+    <div class="step" data-id="sec-repo" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Add BlackArch repository</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>curl -O https://blackarch.org/strap.sh
+chmod +x strap.sh
+sudo ./strap.sh
+sudo pacman -Syyu</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="sec-tools" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Install core security tools</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S nmap wireshark-qt sqlmap gobuster ffuf nikto hydra john hashcat</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>yay -S burpsuite metasploit</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="sec-vm" onclick="toggleStep(this)">
+      <div class="step-header">
+        <div class="step-checkbox"></div>
+        <div class="step-body"><div class="step-title">Set up QEMU/KVM for isolated lab VMs</div></div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S qemu-full virt-manager libvirt dnsmasq
+sudo systemctl enable --now libvirtd
+sudo usermod -aG libvirt mari</div>
+          <div class="callout c-ok">✅ With QEMU you can run Windows, Kali, vulnerable VMs safely isolated.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end #content -->
+</div><!-- end #main-wrap -->
+</div><!-- end #app -->
+
+<!-- ══ NOTEBOOK PANEL ══ -->
+<div id="notebook-panel">
+  <div class="nb-header">
+    <div class="nb-title">📖 Learning Notebook</div>
+    <button class="nb-close" id="nb-close">✕</button>
+  </div>
+  <div class="nb-body" id="nb-body"></div>
+  <div class="nb-add">
+    <textarea id="nb-input" placeholder="Note an insight, command, or reminder..."></textarea>
+    <button class="nb-add-btn" id="nb-add-btn">+ Add Entry</button>
+  </div>
+</div>
+
+<!-- ══ POST-ITS CONTAINER ══ -->
+<div id="postits-container"></div>
+
+<!-- ══ FAB ══ -->
+<button id="fab-postit" title="Add sticky note">🖊</button>
+
+<!-- ══ KEYBOARD HINT ══ -->
+<div style="position:fixed;bottom:8px;left:50%;transform:translateX(-50%);font-size:7.5pt;color:var(--muted);z-index:500;pointer-events:none;background:rgba(0,0,0,.5);padding:2px 10px;border-radius:8px;">
+  ← → navigate chapters &nbsp;|&nbsp; N notebook &nbsp;|&nbsp; F focus mode &nbsp;|&nbsp; 🖊 post-it
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
