@@ -97,6 +97,9 @@
     <div class="sidebar-title">📋 Chapters</div>
   </div>
   <div class="chapter-list" id="chapter-list">
+    <div class="sidebar-section-label">🚨 EMERGENCY FIXES</div>
+    <div class="chapter-item" style="background: rgba(255,82,82,0.15); border-left: 4px solid #ff5252; font-weight: bold;"><span class="ch-icon">🖥️</span><span class="ch-title">DISPLAY FIX (DO FIRST!)</span><span class="ch-pct"></span><div class="ch-check"></div></div>
+
     <div class="sidebar-section-label">Pre-flight</div>
     <div class="chapter-item"><span class="ch-icon">✅</span><span class="ch-title">BIOS Setup</span><span class="ch-pct"></span><div class="ch-check"></div></div>
 
@@ -410,11 +413,177 @@
 
 
 <!-- ════════════════════════════════════════════
-     CHAPTER 1 — BOOT FROM USB
+     CHAPTER 1 — DISPLAY FIX (CRITICAL FIRST!)
 ════════════════════════════════════════════ -->
 <div class="chapter" data-chapter="1">
   <div class="chapter-hero">
-    <div class="chapter-num">Chapter 1 · Live Environment</div>
+    <div class="chapter-num">Chapter 1 · 🚨 CRITICAL FIRST STEP</div>
+    <div class="chapter-title">🖥️ <em>DISPLAY FIX</em> — Can't See Everything? Text Too Small?</div>
+    <div class="chapter-sub">🚨 DO THIS FIRST if bottom content is cut off or text is tiny!</div>
+    <div class="chapter-meta">
+      <span class="ch-badge crit">🚨 EMERGENCY FIX</span>
+      <span class="ch-badge time">⏱ 30 seconds</span>
+    </div>
+  </div>
+  <div class="chapter-progress">
+    <div class="cp-row"><span class="cp-label">Progress</span><div class="cp-bar"><div class="cp-fill" style="width:0%"></div></div><span class="cp-pct">0%</span></div>
+    <div class="cp-btn-row">
+      <button class="cp-btn" onclick="prevChapter()">← BIOS Setup</button>
+      <button class="cp-btn" onclick="nextChapter()">Next: Boot USB →</button>
+    </div>
+  </div>
+
+  <div class="callout c-crit">🚨 <strong>EMERGENCY:</strong> If you can't see the bottom of this page or text is too small to read comfortably, this chapter will fix it in 30 seconds! Press Ctrl+Plus to zoom in RIGHT NOW!</div>
+
+  <div class="steps-container">
+
+    <div class="step" data-id="emergency-display-fix" ">
+      <div class="step-header">
+        <div class="step-checkbox critical" onclick="toggleStep(this, event)"></div>
+        <div class="step-body">
+          <div class="step-title">🚨 INSTANT FIX: Press Ctrl+Plus to make text bigger!</div>
+          <div class="step-meta"><span class="badge b-crit">30 SECONDS</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="callout c-crit">🚨 <strong>DO THIS RIGHT NOW:</strong> Press <kbd>Ctrl + Plus (+)</kbd> on your keyboard 3-4 times!</div>
+          
+          <p class="guide-p"><strong>Instant browser zoom (works immediately):</strong></p>
+          <ul style="font-size: 1.2em; font-weight: bold;">
+            <li>🔍 <strong>Press Ctrl + Plus (+)</strong> → Makes everything bigger</li>
+            <li>🔍 <strong>Press Ctrl + Minus (-)</strong> → Makes everything smaller</li>
+            <li>🔍 <strong>Press Ctrl + 0 (zero)</strong> → Resets to normal size</li>
+          </ul>
+          
+          <div class="callout c-ok">✅ <strong>Perfect!</strong> If you can now read this text comfortably and see everything on the page, the emergency fix worked! You can continue with the guide and set permanent scaling later.</div>
+          
+          <p><strong>Still having issues? Try these:</strong></p>
+          <ul>
+            <li><strong>Bottom content cut off:</strong> Your monitor resolution is wrong</li>
+            <li><strong>Text still too small:</strong> You need system-wide scaling</li>
+            <li><strong>Multiple monitors:</strong> Each monitor may need different scaling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="permanent-scaling-fix" ">
+      <div class="step-header">
+        <div class="step-checkbox" onclick="toggleStep(this, event)"></div>
+        <div class="step-body">
+          <div class="step-title">⚙️ Permanent fix for system-wide scaling</div>
+          <div class="step-meta"><span class="badge b-info">OPTIONAL</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd-label">Install display tools:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>sudo pacman -S wlr-randr</div>
+          
+          <div class="cmd-label">Check your monitors:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button>wlr-randr</div>
+          
+          <div class="cmd-label">Set scaling for your monitors:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Dell 7420 laptop screen (recommended)
+wlr-randr --output eDP-1 --scale 1.25
+
+# External 1080p monitor
+wlr-randr --output HDMI-A-1 --mode 1920x1080 --scale 1.0
+
+# External 4K monitor  
+wlr-randr --output HDMI-A-1 --mode 3840x2160 --scale 2.0</div>
+
+          <div class="cmd-label">Set application scaling:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># For GTK apps (most Linux apps)
+export GDK_SCALE=1.25
+
+# For Qt apps
+export QT_SCALE_FACTOR=1.25
+
+# Make permanent
+echo "export GDK_SCALE=1.25" >> ~/.bashrc
+echo "export QT_SCALE_FACTOR=1.25" >> ~/.bashrc</div>
+
+          <div class="cmd-label">Terminal font size:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Kitty terminal - make fonts bigger
+mkdir -p ~/.config/kitty
+echo "font_size 14" >> ~/.config/kitty/kitty.conf
+
+# Temporary zoom in any terminal
+# Ctrl + Shift + Plus  = bigger text
+# Ctrl + Shift + Minus = smaller text</div>
+
+          <div class="callout c-info">ℹ️ <strong>Recommended scaling:</strong><br>
+          • Dell 7420 laptop: 1.25x<br>
+          • 24" 1080p monitor: 1.0x<br>
+          • 27" 1440p monitor: 1.15x<br>
+          • 4K monitors: 2.0x</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" data-id="monitor-detection-fix" ">
+      <div class="step-header">
+        <div class="step-checkbox" onclick="toggleStep(this, event)"></div>
+        <div class="step-body">
+          <div class="step-title">🔧 Fix monitor detection and cut-off content</div>
+          <div class="step-meta"><span class="badge b-warn">TROUBLESHOOTING</span></div>
+        </div>
+        <span class="step-expand" onclick="toggleStepDetail(this.closest('.step-header'))">▼</span>
+      </div>
+      <div class="step-detail">
+        <div class="step-detail-inner">
+          <div class="cmd-label">If external monitor not detected:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Check connection
+wlr-randr | grep connected
+
+# Refresh detection
+sudo systemctl restart display-manager
+
+# Check cables - try different ports
+# USB-C, HDMI, DisplayPort</div>
+          
+          <div class="cmd-label">If bottom content is cut off:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Force correct resolution
+wlr-randr --output HDMI-A-1 --mode 1920x1080
+wlr-randr --output HDMI-A-1 --mode 2560x1440  
+wlr-randr --output HDMI-A-1 --mode 3840x2160
+
+# Position monitors
+wlr-randr --output eDP-1 --pos 0,0
+wlr-randr --output HDMI-A-1 --pos 1920,0</div>
+
+          <div class="cmd-label">Common Dell 7420 monitor setups:</div>
+          <div class="cmd"><button class="copy-btn" onclick="copyCmd(this)">Copy</button># Laptop + 1080p external on right
+wlr-randr --output eDP-1 --mode 1920x1200 --pos 0,0 --scale 1.25
+wlr-randr --output HDMI-A-1 --mode 1920x1080 --pos 1920,0 --scale 1.0
+
+# Laptop + 4K external on right  
+wlr-randr --output eDP-1 --mode 1920x1200 --pos 0,0 --scale 1.25
+wlr-randr --output HDMI-A-1 --mode 3840x2160 --pos 1920,0 --scale 2.0
+
+# External monitor only (disable laptop screen)
+wlr-randr --output eDP-1 --off
+wlr-randr --output HDMI-A-1 --mode 1920x1080 --scale 1.0</div>
+
+          <div class="callout c-ok">✅ <strong>Test it works:</strong> Open a terminal and make sure you can see this command output without scrolling: <code>echo "Bottom line test - can you see this? 🌸"</code></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════
+     CHAPTER 2 — BOOT FROM USB
+════════════════════════════════════════════ -->
+<div class="chapter" data-chapter="2">
+  <div class="chapter-hero">
+    <div class="chapter-num">Chapter 2 · Live Environment</div>
     <div class="chapter-title">🚀 Boot from <em>USB</em></div>
     <div class="chapter-sub">Get into the Arch live environment</div>
     <div class="chapter-meta">
